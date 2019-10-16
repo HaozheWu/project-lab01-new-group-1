@@ -11,36 +11,50 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:orientation="vertical"
-            tools:layout_gravity="center_horizontal">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
-
-            <TextView
-                android:id="@+id/title2"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:text=" Walk in Clinics Services"
-                android:textColorHighlight="#EDA918C2"
-                android:textSize="38sp"
-                tools:textColor="#2196F3" />
-        </LinearLayout>
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:background="#03A9F4"
-            tools:layout_height="70dp" />
+            android:layout_height="80dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="73dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="69dp"
+                android:layout_height="74dp"
+                android:layout_marginLeft="30dp"
+                app:srcCompat="@mipmap/ic_clinic_logo_01" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="243dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:srcCompat="@mipmap/ic_title01" />
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Clinic Walk In Service" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -50,20 +64,20 @@
 
                 <TextView
                     android:id="@+id/c"
-                    android:layout_width="wrap_content"
+                    android:layout_width="99dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="     Username:"
-                    android:textSize="18sp" />
+                    android:text="    Username:"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/fieldEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="(Please Enter your User Name)" />
+                    android:hint="(Please Enter User Name)"
+                    android:inputType="textPersonName" />
 
             </LinearLayout>
 
@@ -72,6 +86,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="47dp"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -79,56 +94,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="     Passward"
-                android:textSize="18sp" />
+                android:text="    Passward:"
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/fieldPassword"
+                style="Please Enter Your Password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:text="Passward" />
+                android:hint="(Please Enter  Password)"
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="40dp" />
 
         <Button
             android:id="@+id/activity_sign_up"
+            android:layout_width="291dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+            android:onClick="SignupOnclick"
+            android:text="Login In" />
+
+        <TextView
+            android:id="@+id/or"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="170dp"
+            android:layout_marginBottom="10dp"
+            android:text="OR"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#FF000000" />
+
+        <Button
+            android:id="@+id/activity_sign_up2"
+            android:layout_width="289dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@mipmap/ic_button_backgroud_grey"
             android:onClick="SignupOnclick"
-            android:text="Sign In" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="83dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Register"
-                android:layout_width="112dp"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:text="    Register A New Account"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/EmailRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="OnclickRegister"
-                android:text="Register" />
-
-        </LinearLayout>
+            android:text="Login In" />
 
     </LinearLayout>
 
