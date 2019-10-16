@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
     private FirebaseUser mUser;
-    private String Administration = "admin";
+    private String Administration = "adamin";
     private String AdministrationPassward = "5T5ptQ";
     public User currentUser;
     public static String currentusername;
