@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void SignupOnclick(View view) {
+    public void activity_logIn(View view) {
         String username = user.getText().toString();
         String Passward = passward.getText().toString();
-        if (username.equals("(Please Enter your User Name)") || Passward.equals("") || username.equals("") || passward.equals("Passward")) {
-            Toast.makeText(MainActivity.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
+        if (Passward.equals("") || username.equals("")) {
+            Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
         } else if ((username.equals(Administration)) && (Passward).equals(AdministrationPassward)) {
             openAdmin();
         } else {
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                                 }
                                                 else{
                                                 }
-                                                    openRegister();
+                                                openRegister();
                                             }
 
                                             @Override
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void OnclickRegister(View v) {
-        openRegister();
+    public void activity_signUp(View v) {
+        openRegister();}
     }
-}
