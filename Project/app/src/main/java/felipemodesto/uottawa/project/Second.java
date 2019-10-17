@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -57,21 +58,14 @@ public class Second extends AppCompatActivity {
         return email;
     }
 
-    public String Emploee() {
-        EditText Emploee = (EditText) findViewById(R.id.Yes);
-        String emploees = Emploee.getText().toString();
-        if (emploees.toUpperCase().equals("NO") || emploees.toUpperCase().equals("N")) {
-            emploees = "NO";
-        } else if (emploees.toUpperCase().equals("YES") || emploees.toUpperCase().equals("Y")) {
-            emploees = "YES";
-        } else {
-            return emploees = null;
-        }
-        return emploees;
+    public String getStatus() {
+            RadioGroup status = (RadioGroup) findViewById(R.id.statusSelect);
+
     }
 
 
-    public void OnclickComplete(View v) {
+
+    public void Onclick_signUp(View v) {
         String email = getUserEmail();
         String passward = getUserPass();
         String username = getUsername();
@@ -106,4 +100,4 @@ public class Second extends AppCompatActivity {
             });
         }
 
-}}
+    }}

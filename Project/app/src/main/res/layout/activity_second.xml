@@ -11,46 +11,126 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:orientation="vertical">
+            android:layout_height="55dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="69dp"
+                android:layout_height="74dp"
+                app:srcCompat="@mipmap/ic_clinic_logo_01" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="246dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="Create Account"
+                android:textColor="#FA0A0000"
+                android:textSize="35sp" />
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
+
         <TextView
-            android:id="@+id/Register"
+            android:id="@+id/subtitle"
             android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Register"
-            android:textSize="36sp" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Please Chose Your Role"
+            android:textColor="#7E070000"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="560dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/customer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="90dp"
+                    app:srcCompat="@mipmap/ic_customer_48" />
+
+                <ImageView
+                    android:id="@+id/employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_emploee_48" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/statusSelect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/check_employee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:checked="false"
+                        android:clickable="false"
+                        android:text="employee" />
+
+                    <RadioButton
+                        android:id="@+id/check_patients"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="patient" />
+
+                </RadioGroup>
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="89dp" />
+                android:layout_height="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="332dp"
+            android:layout_height="139dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="14dp"
-                    android:layout_height="58dp"
-                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/UserEmail"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:text="User Email" />
+                    android:layout_width="77dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email" />
 
                 <EditText
                     android:id="@+id/email"
@@ -59,113 +139,78 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="start|top"
+                    android:hint="Enter Your Email Address"
                     android:inputType="textMultiLine"
                     android:textSize="14sp" />
 
             </LinearLayout>
 
-            <Space
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="77dp"
+                    android:layout_height="wrap_content"
+                    android:text="User Name" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="173dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Unser Name for Your Account"
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/fieldPassword"
-                    android:layout_width="90dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text=" Passward"
+                    android:layout_width="77dp"
+                    android:layout_height="35dp"
+                    android:text="Passward"
                     android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/passward"
                     android:layout_width="210dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="Password for Your Account"
                     android:inputType="textPassword"
                     android:textSize="14sp" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        </LinearLayout>
 
-                <Space
-                    android:layout_width="32dp"
-                    android:layout_height="58dp"
-                    android:layout_weight="1" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="13dp" />
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="56dp"
-                    android:layout_height="41dp"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="1"
-                    android:text=" User Name" />
-
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine" />
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="29dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="93dp"
-                android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="45dp"
-                    android:layout_height="78dp" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_gravity="bottom"
-                    android:text="I am a Emploee, "
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/Yes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Please Type Yes Or No" />
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:id="@+id/signup_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="OnclickComplete"
-                android:text="Complete" />
+                android:layout_gravity="center"
+                android:onClick="Onclick_signUp"
+                android:text="Create Account" />
 
         </LinearLayout>
 

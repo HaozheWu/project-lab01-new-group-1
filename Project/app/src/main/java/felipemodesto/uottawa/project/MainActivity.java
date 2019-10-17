@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
     private FirebaseUser mUser;
-    private String Administration = "adamin";
+    private String Administration = "admin";
     private String AdministrationPassward = "5T5ptQ";
     public User currentUser;
     public static String currentusername;
@@ -88,14 +88,9 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 currentUser = dataSnapshot.getValue(User.class);
-                                                String emploee = currentUser.getEmploee();
+                                                String status = currentUser.getStatus();
                                                 currentusername = currentUser.getUsername();
-                                                if (emploee.equals("YES")) {
-                                                    openAdmin();
-                                                }
-                                                else{
-                                                }
-                                                openRegister();
+                                                openAdmin();
                                             }
 
                                             @Override
@@ -113,4 +108,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void activity_signUp(View v) {
         openRegister();}
+
     }

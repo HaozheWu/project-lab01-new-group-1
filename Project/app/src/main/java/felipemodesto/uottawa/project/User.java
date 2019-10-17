@@ -4,29 +4,29 @@ public class User {
     String UserEmail;
     String Passward;
     String Username;
-    String Emploee;
+    String Status ;
 
-    public User(String UserEmail, String Passward, String Username, String Emploee) {
+    public User(String UserEmail, String Passward, String Username, String status) {
         this.UserEmail = UserEmail;
         this.Passward = Passward;
         this.Username = Username;
-        this.Emploee = Emploee;
+        this.Status = status;
     }
 
-    public User() {
-    }
-
-    ;
 
     public String getUserEmail() {
         return UserEmail;
     }
+
     public void setUsername(String username){
         this.Username=username;
     }
-    public void setEmploee(String Emploee){
-        this.Emploee=Emploee;
+
+    public void setSatus(String status){
+        this.Status=status;
     }
+
+
     public String getPassward() {
         return Passward;
     }
@@ -35,8 +35,8 @@ public class User {
         return Username;
     }
 
-    public String getEmploee() {
-        return Emploee;
+    public String getStatus() {
+        return Status;
     }
 }
 
