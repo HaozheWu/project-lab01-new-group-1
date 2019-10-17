@@ -60,17 +60,27 @@ public class Second extends AppCompatActivity {
 
     public String getStatus() {
             RadioGroup status = (RadioGroup) findViewById(R.id.statusSelect);
+            int pos = status.getCheckedRadioButtonId();
+            if(pos==0){
+                return "employee";
+            }else{
+                return "patient";
+            }
 
     }
 
+    public void openAdmin() {
+        Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
+        startActivity(intent);
+    }
 
 
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
         String passward = getUserPass();
         String username = getUsername();
-        String emploee =  Emploee();
-        if(emploee==null){
+        String status =  getStatus();
+        if(status==null){
             Toast.makeText(Second.this, "Invalid user Status Input, Input Yes or No", Toast.LENGTH_LONG).show();
         }
         else if (email.equals("")) {
@@ -84,7 +94,8 @@ public class Second extends AppCompatActivity {
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else {
-            final User oneuser = new User(email, passward, username, emploee);
+            final User oneuser = new User(email, passward, username, status);
+            openAdmin();
             mAuth.createUserWithEmailAndPassword(email, passward).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
