@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
     private FirebaseUser mUser;
-    private String Administration = "admin";
-    private String AdministrationPassward = "5T5ptQ";
     public User currentUser;
     public static String currentusername;
 
@@ -71,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
         String Passward = passward.getText().toString();
         if (Passward.equals("") || username.equals("")) {
             Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
-        } else if ((username.equals(Administration)) && (Passward).equals(AdministrationPassward)) {
-            openAdmin();
         } else {
             mAuth.signInWithEmailAndPassword(username, Passward)
 
@@ -93,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 String status=(String)dataSnapshot.child("status").getValue();
                                                 currentusername = (String) dataSnapshot.child("username").getValue();
+                                                if (status.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                                                    openAdmin();
+                                                }
                                                  if (status.equals("Employee")) {
                                                      openEmployee();//Should create an activity Welcome Emploee here
                                                 }
