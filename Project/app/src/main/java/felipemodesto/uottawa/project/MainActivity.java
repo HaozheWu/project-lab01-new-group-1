@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
         startActivity(intent);
     }
+    public void openEmployee() {
+        Intent intent = new Intent(getApplicationContext(), welcomeemployee.class);
+        startActivity(intent);
+    }
 
     public void activity_logIn(View view) {
         String username = user.getText().toString();
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                                 String status=(String)dataSnapshot.child("status").getValue();
                                                 currentusername = (String) dataSnapshot.child("username").getValue();
                                                  if (status.equals("Employee")) {
-                                                    openAdmin();//Should create an activity Welcome Emploee here
+                                                     openEmployee();//Should create an activity Welcome Emploee here
                                                 }
                                                 else if (status.equals("Patients")){
                                                     openRegister();//Should create an activity Welcome Patient here
