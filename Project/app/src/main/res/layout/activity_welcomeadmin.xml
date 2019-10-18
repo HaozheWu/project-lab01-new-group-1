@@ -46,8 +46,8 @@
                 android:text="Welcome Administrator"
                 android:textColor="#FA0A0000"
                 android:textSize="25sp"
-                
-               
+
+
                 />
         </LinearLayout>
 

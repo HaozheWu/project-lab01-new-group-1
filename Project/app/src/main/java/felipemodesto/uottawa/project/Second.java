@@ -92,7 +92,7 @@ public class Second extends AppCompatActivity {
         String status = getStatus();
         String gender = getGender();
         if (status.equals("Empty")) {
-            Toast.makeText(Second.this, "Status Should be choosen", Toast.LENGTH_LONG).show();
+            Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
            
         } else if (email.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
@@ -103,7 +103,7 @@ public class Second extends AppCompatActivity {
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else if (gender.equals("Empty")) {
-            Toast.makeText(Second.this, "Gender should be choosen", Toast.LENGTH_LONG).show();
+            Toast.makeText(Second.this, "Gender should be selected", Toast.LENGTH_LONG).show();
         } else {
             final User result  = new User(gender, username, status);
             mAuth.createUserWithEmailAndPassword(email, passward).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
