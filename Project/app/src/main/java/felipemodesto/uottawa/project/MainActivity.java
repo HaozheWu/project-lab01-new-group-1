@@ -87,10 +87,14 @@ public class MainActivity extends AppCompatActivity {
                                         .addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                currentUser = dataSnapshot.getValue(User.class);
-                                                String status = currentUser.getStatus();
-                                                currentusername = currentUser.getUsername();
-                                                openAdmin();
+                                                String status=(String)dataSnapshot.child("status").getValue();
+                                                currentusername = (String) dataSnapshot.child("username").getValue();
+                                                 if (status.equals("Employee")) {
+                                                    openAdmin();//Should create an activity Welcome Emploee here
+                                                }
+                                                else if (status.equals("Patients")){
+                                                    openRegister();//Should create an activity Welcome Patient here
+                                                }
                                             }
 
                                             @Override

@@ -2,13 +2,10 @@ package felipemodesto.uottawa.project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,15 +15,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-
-import felipemodesto.uottawa.project.R;
 
 public class Second extends AppCompatActivity {
     private EditText email;
     private EditText passward;
     private FirebaseAuth mAuth;
+    private EditText Gender;
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
 
@@ -46,8 +41,8 @@ public class Second extends AppCompatActivity {
         return email;
     }
 
-    public String getUserPass() {
-        EditText et2 = (EditText) findViewById(R.id.passward);
+        public String getUserPass() {
+       EditText et2 = (EditText) findViewById(R.id.passward);
         String password = et2.getText().toString();
         return password;
     }
@@ -59,14 +54,29 @@ public class Second extends AppCompatActivity {
     }
 
     public String getStatus() {
-            RadioGroup status = (RadioGroup) findViewById(R.id.statusSelect);
-            int pos = status.getCheckedRadioButtonId();
-            if(pos==0){
-                return "employee";
-            }else{
-                return "patient";
-            }
 
+        RadioGroup status = (RadioGroup) findViewById(R.id.statusSelect);
+        int pos = status.getCheckedRadioButtonId();
+        int b =R.id.check_employee;
+        int c=R.id.check_patients;
+        if(pos==b){
+            return "Employee";
+        }else if(pos==c){
+            return "Patients";
+        }
+        return "Empty";
+    }
+    public String getGender() {
+        RadioGroup status = (RadioGroup) findViewById(R.id.genderSelect);
+        int pos = status.getCheckedRadioButtonId();
+        int b =R.id.check_male;
+        int c=R.id.check_female;
+        if(pos==b){
+            return "male";
+        }else if(pos==c){
+            return "female";
+        }
+        return "Empty";
     }
 
     public void openAdmin() {
@@ -79,36 +89,39 @@ public class Second extends AppCompatActivity {
         String email = getUserEmail();
         String passward = getUserPass();
         String username = getUsername();
-        String status =  getStatus();
-        if(status==null){
-            Toast.makeText(Second.this, "Invalid user Status Input, Input Yes or No", Toast.LENGTH_LONG).show();
-        }
-        else if (email.equals("")) {
+        String status = getStatus();
+        String gender = getGender();
+        if (status.equals("Empty")) {
+            Toast.makeText(Second.this, "Status Should be choosen", Toast.LENGTH_LONG).show();
+        } else if (email.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
         } else if ((Patterns.EMAIL_ADDRESS.matcher(email).matches()) == false) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
-        } else if(passward.length()<6){
+        } else if (passward.length() < 6) {
             Toast.makeText(Second.this, "Password is too short", Toast.LENGTH_LONG).show();
         } else if (passward.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
+        } else if (gender.equals("Empty")) {
+            Toast.makeText(Second.this, "Gender should be choosen", Toast.LENGTH_LONG).show();
         } else {
-            final User oneuser = new User(email, passward, username, status);
-            openAdmin();
+            final User result  = new User(gender, username, status);
             mAuth.createUserWithEmailAndPassword(email, passward).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
 
                         mDatabase.getReference("Users")
-                                .child(mAuth.getCurrentUser().getUid()).setValue(oneuser);
+                                .child(mAuth.getCurrentUser().getUid()).setValue(result);
                         back();
+                    } else {
+                        Toast.makeText(Second.this, "Database Error:(", Toast.LENGTH_LONG).show();
                     }
 
 
                 }
             });
         }
-
-    }}
+    }
+    };
