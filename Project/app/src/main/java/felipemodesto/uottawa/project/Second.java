@@ -98,8 +98,6 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
         } else if ((Patterns.EMAIL_ADDRESS.matcher(email).matches()) == false) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
-        } else if (passward.length() < 6) {
-            Toast.makeText(Second.this, "Password is too short", Toast.LENGTH_LONG).show();
         } else if (passward.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
         } else if (username.equals("")) {

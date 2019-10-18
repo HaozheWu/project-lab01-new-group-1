@@ -11,8 +11,7 @@ public class welcomeadmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcomeadmin);
-        UserNameTextView=(TextView)findViewById(R.id.textView6);
-        UserNameTextView.setText(MainActivity.currentusername);
+
         //edit
 
     }

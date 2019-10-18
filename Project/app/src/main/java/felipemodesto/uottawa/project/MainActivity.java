@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), welcomeemployee.class);
         startActivity(intent);
     }
+    public void openpatient() {
+        Intent intent = new Intent(getApplicationContext(), WelcomePatients.class);
+        startActivity(intent);
+    }
 
     public void activity_logIn(View view) {
         String username = user.getText().toString();
@@ -92,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
                                                 if (status.equals("Admin")) {//using email:admin@admin.ca password is given by prof
                                                     openAdmin();
                                                 }
-                                                 if (status.equals("Employee")) {
+                                                 else if (status.equals("Employee")) {
                                                      openEmployee();//Should create an activity Welcome Emploee here
                                                 }
-                                                else if (status.equals("Patients")){
-                                                    openRegister();//Should create an activity Welcome Patient here
+                                                else{
+                                                    openpatient();//Should create an activity Welcome Patient here
                                                 }
                                             }
 
