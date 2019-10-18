@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Second extends AppCompatActivity {
     private EditText email;
-    private EditText passward;
+    private EditText password;
     private FirebaseAuth mAuth;
     private EditText Gender;
     private static final String TAG = "Second";
@@ -42,7 +42,7 @@ public class Second extends AppCompatActivity {
     }
 
         public String getUserPass() {
-       EditText et2 = (EditText) findViewById(R.id.passward);
+       EditText et2 = (EditText) findViewById(R.id.password);
         String password = et2.getText().toString();
         return password;
     }

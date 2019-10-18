@@ -46,7 +46,7 @@
         <TextView
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:layout_gravity="center"
             android:text="Please Chose Your Role"
             android:textColor="#7E070000"
@@ -161,7 +161,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="start|top"
-                    android:hint="Unser Name for Your Account"
+                    android:hint="User Name for Your Account"
                     android:inputType="textMultiLine"
                     android:textSize="14sp" />
 
@@ -176,11 +176,11 @@
                     android:id="@+id/fieldPassword"
                     android:layout_width="77dp"
                     android:layout_height="35dp"
-                    android:text="Passward"
+                    android:text="Password"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/passward"
+                    android:id="@+id/password"
                     android:layout_width="210dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
@@ -251,7 +251,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/signup_button"
+                android:id="@+id/sign_up_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

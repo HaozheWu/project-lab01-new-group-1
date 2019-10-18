@@ -98,7 +98,7 @@
                 android:id="@+id/detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="    Passward:"
+                android:text="    Password:"
                 android:textSize="15sp" />
 
             <EditText
@@ -137,7 +137,7 @@
             android:textColor="#FF000000" />
 
         <Button
-            android:id="@+id/signUp_buttom"
+            android:id="@+id/signUp_button"
             android:layout_width="320dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
