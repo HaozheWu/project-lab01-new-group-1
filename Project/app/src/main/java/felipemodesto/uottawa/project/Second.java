@@ -58,7 +58,7 @@ public class Second extends AppCompatActivity {
         RadioGroup status = (RadioGroup) findViewById(R.id.statusSelect);
         int pos = status.getCheckedRadioButtonId();
         int b =R.id.check_employee;
-        int c=R.id.check_patients;
+        int c =R.id.check_patients;
         if(pos==b){
             return "Employee";
         }else if(pos==c){
@@ -70,7 +70,7 @@ public class Second extends AppCompatActivity {
         RadioGroup status = (RadioGroup) findViewById(R.id.genderSelect);
         int pos = status.getCheckedRadioButtonId();
         int b =R.id.check_male;
-        int c=R.id.check_female;
+        int c =R.id.check_female;
         if(pos==b){
             return "male";
         }else if(pos==c){
@@ -96,7 +96,7 @@ public class Second extends AppCompatActivity {
            
         } else if (email.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
-        } else if ((Patterns.EMAIL_ADDRESS.matcher(email).matches()) == false) {
+        } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
         } else if (passward.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
