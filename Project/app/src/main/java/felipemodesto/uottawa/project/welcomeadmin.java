@@ -13,6 +13,8 @@ public class welcomeadmin extends AppCompatActivity {
         setContentView(R.layout.activity_welcomeadmin);
         UserNameTextView=(TextView)findViewById(R.id.textView2);
         UserNameTextView.setText(MainActivity.currentusername);
+        //edit
+
     }
 
 
