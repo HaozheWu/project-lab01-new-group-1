@@ -126,7 +126,7 @@ public class Second extends AppCompatActivity {
                                 .child(mAuth.getCurrentUser().getUid()).setValue(result);
                         back();
                     } else {
-                        Toast.makeText(Second.this, "Database Error:(", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Second.this, "Database Error:(  Check if your email has been used or try again later", Toast.LENGTH_LONG).show();
                     }
 
 
