@@ -83,6 +83,16 @@ public class Second extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
         startActivity(intent);
     }
+    public  static   boolean   test(String   s)
+    { char   c   =   s.charAt(0);
+        int   i   =(int)c;
+        if((i>=65&&i<=90)||(i>=97&&i<=122))
+        { return   true;
+        }
+        else
+        { return   false;
+        }
+    }
 
 
     public void Onclick_signUp(View v) {
@@ -93,8 +103,9 @@ public class Second extends AppCompatActivity {
         String gender = getGender();
         if (status.equals("Empty")) {
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
-           
-        } else if (email.equals("")) {
+        }else if(test(username)==false){
+            Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
+        }else if (email.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
