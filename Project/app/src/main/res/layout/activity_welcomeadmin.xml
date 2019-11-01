@@ -6,18 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".welcomeadmin">
 
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="Log out" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="55dp" />
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:onClick="logout" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
@@ -57,7 +65,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <TextView
@@ -65,10 +73,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:text="You are logged in as an admin!"
                 android:textColor="#FA0A0000"
-                android:gravity="center_horizontal"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:onClick="openService"
+                android:text="Service" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:onClick="openmanagement"
+                android:text="Manage Account" />
         </LinearLayout>
 
     </LinearLayout>

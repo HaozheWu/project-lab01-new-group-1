@@ -5,18 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,17 +17,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.regex.Pattern;
-
-import felipemodesto.uottawa.project.R;
-import felipemodesto.uottawa.project.Second;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user;
     private EditText passward;
     private FirebaseAuth mAuth;
+    private passwordEncryption a;
+
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
+
     private FirebaseUser mUser;
     public User currentUser;
     public static String currentusername;
@@ -44,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         user = (EditText) findViewById(R.id.fieldEmail);
         passward = (EditText) findViewById(R.id.fieldPassword);
@@ -59,65 +49,62 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
         startActivity(intent);
     }
+
     public void openEmployee() {
         Intent intent = new Intent(getApplicationContext(), welcomeemployee.class);
         startActivity(intent);
     }
+
     public void openpatient() {
-        Intent intent = new Intent(getApplicationContext(), WelcomePatients.class);
+        Intent intent = new Intent(getApplicationContext(), Welcomepatients.class);
         startActivity(intent);
     }
 
     public void activity_logIn(View view) {
-        String username = user.getText().toString();
-        String Passward = passward.getText().toString();
-        if (Passward.equals("") || username.equals("")) {
+        final String username = user.getText().toString();
+        final String Passwards =passward.getText().toString();
+        if (Passwards.equals("") || username.equals("")) {
             Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
         } else {
-            mAuth.signInWithEmailAndPassword(username, Passward)
-
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-
-                        @Override
-
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-                                mAuth = FirebaseAuth.getInstance();
-                                mUser = mAuth.getCurrentUser();
-                                mReference = FirebaseDatabase.getInstance().getReference();
-                                mReference.child("Users")
-                                        .child(mUser.getUid())
-                                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                String status=(String)dataSnapshot.child("status").getValue();
-                                                currentusername = (String) dataSnapshot.child("username").getValue();
-                                                if (status.equals("Admin")) {//using email:admin@admin.ca password is given by prof
-                                                    openAdmin();
-                                                }
-                                                 else if (status.equals("Employee")) {
-                                                     openEmployee();//Should create an activity Welcome Emploee here
-                                                }
-                                                else{
-                                                    openpatient();//Should create an activity Welcome Patient here
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                            }
-                                        });
+            a=new passwordEncryption();
+            final String hashpass=a.passwordEncryption(Passwards);
+            mReference = FirebaseDatabase.getInstance().getReference("Users");
+            mReference.addValueEventListener(new ValueEventListener() {
+                String statuas;
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    boolean success=false;
+                    for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                        String UserEmail = (String)postdataSnapshot.child("email").getValue();
+                        String UserPassward =(String)postdataSnapshot.child("passward").getValue();
+                        System.out.println(UserEmail);
+                        System.out.println(UserPassward);
+                        if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
+                            success=true;
+                           statuas=(String) postdataSnapshot.child("status").getValue();
+                           currentusername=(String)postdataSnapshot.child("username").getValue();
+                            if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                                openAdmin();
+                            } else if (statuas.equals("Employee")) {
+                                openEmployee();//Should create an activity Welcome Emploee here
                             } else {
-                                Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
+                                openpatient();//Should create an activity Welcome Patient here
                             }
                         }
-                    });
-        }
-    }
+                    }
+                    if(success==false){
+                            Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
+                    }
+
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
+                 }
+            }
+            );}}
 
     public void activity_signUp(View v) {
-        openRegister();}
-
+        openRegister();
     }
+}

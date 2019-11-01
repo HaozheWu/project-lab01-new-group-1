@@ -15,21 +15,25 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
 
 public class Second extends AppCompatActivity {
     private EditText email;
     private EditText password;
-    private FirebaseAuth mAuth;
     private EditText Gender;
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
+    DatabaseReference DatabaseUser;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        mAuth = FirebaseAuth.getInstance();
+
         mDatabase = FirebaseDatabase.getInstance();
+        DatabaseUser=FirebaseDatabase.getInstance().getReference("Users");
     }
     public void back() {
         Intent register = new Intent(getApplicationContext(), MainActivity.class);
@@ -116,22 +120,14 @@ public class Second extends AppCompatActivity {
         } else if (gender.equals("Empty")) {
             Toast.makeText(Second.this, "Gender should be selected", Toast.LENGTH_LONG).show();
         } else {
-            final User result  = new User(gender, username, status);
-            mAuth.createUserWithEmailAndPassword(email, passward).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-
-                        mDatabase.getReference("Users")
-                                .child(mAuth.getCurrentUser().getUid()).setValue(result);
+            String id = DatabaseUser.push().getKey();
+            final User result  = new User(id,email,passward,gender, username, status);
+                        DatabaseUser.child(id).setValue(result);
                         back();
-                    } else {
-                        Toast.makeText(Second.this, "Database Error:(  Check if your email has been used or try again later", Toast.LENGTH_LONG).show();
                     }
 
 
                 }
-            });
         }
-    }
-    };
+
+
