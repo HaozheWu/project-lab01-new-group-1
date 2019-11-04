@@ -9,7 +9,7 @@ public class User {
     String Gender;
     passwordEncryption a;
 
-    public User(String Id,String Email,String Passward,String Gender, String Username, String status) {
+    public User(String Id,String Email,String Passward,String Gender, String Username, String Status) {
         a=new passwordEncryption();
         this.Id=Id;
         this.Email=Email;
