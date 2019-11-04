@@ -1,0 +1,112 @@
+class MainActivity{
+EditText user;
+  EditText password;
+  FirebaseAuth mAuth;
+  passwordEncryption a;
+  FirebaseDatabase mDatabase;
+  DatabaseReference mReference;
+  FirebaseUser mUser;
+  User currentUser;
+  String currentusername;
+  
+  onCreate(Bundle saveInsatnceState){}
+  
+  openRegister(){}
+  
+  openAdmin(){}
+  
+  openEmployee(){}
+  
+  openPatient(){}
+  
+  activity_lonin(View view){}
+  
+  activity_signup(View v){}
+}
+
+class ManageAccount{  EditText email;
+  FirebaseDatabase mDatabase;
+  DatabaseReference mReference;
+  FirebaseUser mUser;
+  FirebaseAuth mAuth;
+  currentusername;
+                    
+                    onCreate(Bundle saveInstaceState){}
+                    
+                    activity_lonin(View view){}
+                    dialog(){}
+                    openAdmin(){}
+                    openadmin(){}
+}
+
+class Second{}
+
+class Services{
+  String _id;
+  String _Servicesname;
+  String _emploeename;
+  String _emploeerole;
+  double _price;
+  
+  Services(){}
+  
+  Services(String id, String Servicenames, double price, String empoleename, String emploeerole){}
+  
+  Services(String Servicesnames, double price, String emploeename, String emploeerole){}
+  
+  get_emploeename(){}
+  
+  set_emploeerole(){}
+  
+}
+
+class ServiceList{}
+
+class User{
+String Id;
+  String Email;
+  String Username;
+  String Status;
+  String Gender;
+  passwordEncryption a;
+  
+  User(String Id, String Email, String Passward, String Gender, String Username, String Status){}
+  
+  User(){}
+  
+  setId(String Id){}
+  
+  getPassward(){}
+  
+  getId(){}
+  
+  getUsername(){}
+  
+  getEmail(){}
+  
+  setEmail(String Email){}
+
+  setPassword(String password){}
+  
+  setUsername(String Username){}
+  
+  getStatus(){}
+  
+  setStatus(String Status){}
+  
+  setGender(String Gender){}
+  
+  getGender(){}
+}
+
+class WelcomePatients{}
+
+class Welcomepatients{}
+
+class passwordEncryption{}
+
+class service{}
+
+class welcomeadmin{}
+
+class welcomemployee{}
