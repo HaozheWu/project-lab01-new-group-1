@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "171272417703",
+    "firebase_url": "https://project-5b3d7.firebaseio.com",
+    "project_id": "project-5b3d7",
+    "storage_bucket": "project-5b3d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171272417703:android:f197dbe8e52ad5b6190682",
+        "android_client_info": {
+          "package_name": "felipemodesto.uottawa.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171272417703-5lj3e6g0lfob79cvj95gad4pf643f6j9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "felipemodesto.uottawa.project",
+            "certificate_hash": "0b8aa2f0e241ed5409497c3a437e13545539c4f6"
+          }
+        },
+        {
+          "client_id": "171272417703-c0lvlbhonf7oao8gdjq41slajhdobrvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCykA9mgDc8cfWDdO-_hqGlAWYpkZnkCKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171272417703-c0lvlbhonf7oao8gdjq41slajhdobrvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
