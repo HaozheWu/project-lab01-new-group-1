@@ -15,8 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -24,9 +27,12 @@ public class Second extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText Gender;
+    DatabaseReference mReference;
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
     DatabaseReference DatabaseUser;
+    private boolean check;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +104,30 @@ public class Second extends AppCompatActivity {
         }
     }
 
+    public void checkifthisemailhasaccount(final String email){
+        if (!email.equals("")){
+        mReference = FirebaseDatabase.getInstance().getReference("Users");
+        mReference.addValueEventListener(new ValueEventListener() {
+
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                    String UserEmail = (String) postdataSnapshot.child("email").getValue();
+                    System.out.println(UserEmail);
+                    if (email.equals(UserEmail)) {
+                     boolean check=false;
+                     System.out.println(check);
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(Second.this, "Firebase Error Try again later", Toast.LENGTH_LONG).show();
+                EditText et1 = (EditText) findViewById(R.id.email);
+                et1.setText("");
+            }});
+    }
+    }
 
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
@@ -105,12 +135,16 @@ public class Second extends AppCompatActivity {
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
-        if (status.equals("Empty")) {
-            Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
-        }else if(test(username)==false){
-            Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
+        checkifthisemailhasaccount(email);
+        System.out.println(check);
+        System.out.println(check==false);
+        if(!check){
+            Toast.makeText(Second.this, "Your email has an account,change an email", Toast.LENGTH_LONG).show();
+            check=true;
         }else if (email.equals("")) {
             Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
+        }else if (status.equals("Empty")) {
+            Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
         } else if (passward.equals("")) {
@@ -119,15 +153,17 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else if (gender.equals("Empty")) {
             Toast.makeText(Second.this, "Gender should be selected", Toast.LENGTH_LONG).show();
-        } else {
+        } else if(test(username)==false){
+            Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
+        } else{
             String id = DatabaseUser.push().getKey();
             final User result  = new User(id,email,passward,gender, username, status);
                         DatabaseUser.child(id).setValue(result);
                         back();
-                    }
+                    }}
 
 
                 }
-        }
+
 
 

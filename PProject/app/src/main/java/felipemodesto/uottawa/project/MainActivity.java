@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //public void openpatient() {
-       // Intent intent = new Intent(getApplicationContext(), Welcomepatients.class);
-       // startActivity(intent);
-    //}
+    public void openpatient() {
+        Intent intent = new Intent(getApplicationContext(),welcomepatient.class);
+        startActivity(intent);
+    }
 
     public void activity_logIn(View view) {
         final String username = user.getText().toString();
@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
                         String UserEmail = (String)postdataSnapshot.child("email").getValue();
                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
-                        System.out.println(UserEmail);
-                        System.out.println(UserPassward);
                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
                             success=true;
                            statuas=(String) postdataSnapshot.child("status").getValue();
@@ -87,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             } else if (statuas.equals("Employee")) {
                                 openEmployee();//Should create an activity Welcome Emploee here
                             } else {
-                                //openpatient();//Should create an activity Welcome Patient here
+                                openpatient();//Should create an activity Welcome Patient here
                             }
                         }
                     }
