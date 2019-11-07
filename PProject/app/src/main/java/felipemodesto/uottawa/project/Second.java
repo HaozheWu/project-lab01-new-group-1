@@ -142,13 +142,13 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Your email has an account,change an email", Toast.LENGTH_LONG).show();
             check=true;
         }else if (email.equals("")) {
-            Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(Second.this, "Email is empty", Toast.LENGTH_LONG).show();
         }else if (status.equals("Empty")) {
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
         } else if (passward.equals("")) {
-            Toast.makeText(Second.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(Second.this, "Password is empty", Toast.LENGTH_LONG).show();
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else if (gender.equals("Empty")) {
@@ -159,6 +159,7 @@ public class Second extends AppCompatActivity {
             String id = DatabaseUser.push().getKey();
             final User result  = new User(id,email,passward,gender, username, status);
                         DatabaseUser.child(id).setValue(result);
+                        Toast.makeText(Second.this, "Registered successfully",Toast.LENGTH_LONG).show();
                         back();
                     }}
 

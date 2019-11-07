@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             success=true;
                            statuas=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
+                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
                                 openAdmin();
                             } else if (statuas.equals("Employee")) {

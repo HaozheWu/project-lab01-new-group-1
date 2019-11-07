@@ -12,7 +12,7 @@ public class Welcomepatients extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcomepatients);
+        setContentView(R.layout.activity_welcomepatient);
         UserNameTextView=(TextView)findViewById(R.id.name);
         UserNameTextView.setText(MainActivity.currentusername);
     }
