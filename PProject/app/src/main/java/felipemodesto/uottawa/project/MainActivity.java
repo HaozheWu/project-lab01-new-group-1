@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             final String hashpass=a.passwordEncryption(Passwards);
             mReference = FirebaseDatabase.getInstance().getReference("Users");
             mReference.addValueEventListener(new ValueEventListener() {
-                String statuas;
+                String status;
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     boolean success=false;
                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
@@ -78,20 +78,20 @@ public class MainActivity extends AppCompatActivity {
                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
                             success=true;
-                           statuas=(String) postdataSnapshot.child("status").getValue();
+                           status=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                            if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                            if (status.equals("Admin")) {//using email:admin@admin.ca password is given by prof
                                 openAdmin();
-                            } else if (statuas.equals("Employee")) {
-                                openEmployee();//Should create an activity Welcome Emploee here
+                            } else if (status.equals("Employee")) {
+                                openEmployee();//Should create an activity Welcome Employee here
                             } else {
                                 openpatient();//Should create an activity Welcome Patient here
                             }
                         }
                     }
                     if(success==false){
-                            Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Incorrect Password:(", Toast.LENGTH_LONG).show();
                     }
 
 

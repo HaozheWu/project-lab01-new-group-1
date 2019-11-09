@@ -16,12 +16,12 @@ class Services {
         _emploeename=emploeename;
         _emploeerole=emploeerole;
     }
-   /* public Services(String Servicesnames, double price,String emploeename,String emploeerole) {
+    public Services(String Servicesnames, double price,String emploeename,String emploeerole) {
         _Servicesname = Servicesnames;
         _price = price;
         _emploeename=emploeename;
         _emploeerole=emploeerole;
-    }*/
+    }
 
     public String get_emploeename() {
         return _emploeename;
