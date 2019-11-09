@@ -22,14 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Emploee name" />
+        android:hint="Enter Employee name" />
 
     <EditText
         android:id="@+id/Emploeerole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Emploee role" />
+        android:hint="Enter Employee role" />
 
     <LinearLayout
         android:layout_width="match_parent"
