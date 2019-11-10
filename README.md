@@ -10,3 +10,6 @@
 | Min Zhang | 8571217 |
 | France Liu | 300030315 |
 | Langqing Zou | 300035036 |
+
+
+### Build Status [![CircleCI](https://circleci.com/gh/professor-forward/project-lab01-new-group.svg?style=svg)](https://circleci.com/gh/professor-forward/project-lab01-new-group)
