@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/ProductCatalog
+    working_directory: ~/PProject
     docker:
       - image: circleci/android:api-28-alpha
     environment:
@@ -28,4 +28,3 @@ jobs:
           destination: apks/
       - store_test_results:
           path: app/build/test-results
- 
