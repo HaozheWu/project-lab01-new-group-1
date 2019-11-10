@@ -2,6 +2,7 @@ package felipemodesto.uottawa.project;
 
 import org.junit.Test;
 
+import static org.apache.maven.artifact.ant.shaded.StringUtils.isNumeric;
 import static org.junit.Assert.*;
 
 /**
@@ -10,10 +11,7 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
+
     
     @Test
     public void isEmail() {
@@ -34,7 +32,7 @@ public class ExampleUnitTest {
         String pwdMD5Str16 = "49ba59abbe56e057";//123456md5  16passwordEncryption
         passwordEncryption passwordEncryption = new passwordEncryption();
         assertEquals(pwdMD5Str32, passwordEncryption.passwordEncryption(pwd));
-        assertEquals(pwdMD5Str16, passwordEncryption.passwordEncryption(pwd));
+        assertNotEquals(pwdMD5Str16, passwordEncryption.passwordEncryption(pwd));
     }
 
     /**
@@ -46,4 +44,10 @@ public class ExampleUnitTest {
         String price = "000.09";
         System.out.println("price is number==" + isNumeric(price));
     }
+
+    /**
+     *
+     */
+
+
 }
