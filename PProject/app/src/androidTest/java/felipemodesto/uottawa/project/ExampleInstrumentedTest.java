@@ -24,4 +24,11 @@ public class ExampleInstrumentedTest {
 
         assertEquals("felipemodesto.uottawa.project", appContext.getPackageName());
     }
+    
+    @Test
+    public void getUsers() {
+        System.out.println("***********************************");
+        FirebaseDatabase mDb = FirebaseDatabase.getInstance();
+        System.out.println("get user ==" + mDb.getReference("Users").child("").toString());
+    }
 }
