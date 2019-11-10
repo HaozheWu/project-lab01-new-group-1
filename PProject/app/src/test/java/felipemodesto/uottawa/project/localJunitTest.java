@@ -1,5 +1,7 @@
 package felipemodesto.uottawa.project;
 
+
+
 import org.junit.Test;
 
 import static org.apache.maven.artifact.ant.shaded.StringUtils.isNumeric;
@@ -8,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class localJunitTest {
 
-    
+
     @Test
     public void isEmail() {
         String eamilStr = "00000@.com";
@@ -42,8 +44,46 @@ public class localJunitTest {
     }
 
     /**
-     *
+     * Test user
      */
+    @Test
+    public void checkUser(){
+        String Email = "email@email.com";
+        String Passward="#io12365";
+        String Username="belly";
+        String Status = "admin";
+        String Gender = "female" ;
+
+        User user =new User(Email,Passward,Gender,Username,Status);
+        assertNotNull(user);
+        assertEquals(Email,user.getEmail());
+        //using not equal Since passwordEncryption
+        assertNotEquals(Passward,user.getPassword());
+        assertEquals(Username,user.getUsername());
+        assertEquals(Status,user.getStatus());
+        assertEquals(Gender,user.getGender());
 
 
-}
+    }
+
+    /**
+     * Test services
+     */
+    @Test
+    public void checkServices(){
+         String _Servicesname = "Allergy";
+         String  _emploeename = "Liliya";
+         String  _emploeerole = "employee";
+         double _price = 112.25 ;
+
+        Services service = new Services( _Servicesname, _price,_emploeename,_emploeerole);
+        assertNotNull(service);
+        assertEquals(_Servicesname,service.getServicesName());
+        assertEquals(_emploeename,service.get_emploeename());
+        assertEquals(_emploeerole,service.get_emploeerole());
+        assertEquals(_price,service.getPrice(),0);
+    }
+
+
+
+    }
