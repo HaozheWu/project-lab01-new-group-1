@@ -60,17 +60,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void activity_logIn(View view) {
+   public void activity_logIn(View view) {
         final String username = user.getText().toString();
         final String Passwards =passward.getText().toString();
         if (Passwards.equals("") || username.equals("")) {
             Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
         } else {
+            if (!RegTool.isEmail(username)) {
+                Toast.makeText(MainActivity.this, "The mailbox entered is illegal", Toast.LENGTH_LONG).show();
+                return;
+            }
             a=new passwordEncryption();
             final String hashpass=a.passwordEncryption(Passwards);
             mReference = FirebaseDatabase.getInstance().getReference("Users");
             mReference.addValueEventListener(new ValueEventListener() {
-                String status;
+                String statuas;
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     boolean success=false;
                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
@@ -78,20 +82,20 @@ public class MainActivity extends AppCompatActivity {
                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
                             success=true;
-                           status=(String) postdataSnapshot.child("status").getValue();
+                           statuas=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                            if (status.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                            if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
                                 openAdmin();
-                            } else if (status.equals("Employee")) {
-                                openEmployee();//Should create an activity Welcome Employee here
+                            } else if (statuas.equals("Employee")) {
+                                openEmployee();//Should create an activity Welcome Emploee here
                             } else {
                                 openpatient();//Should create an activity Welcome Patient here
                             }
                         }
                     }
                     if(success==false){
-                            Toast.makeText(MainActivity.this, "Incorrect Password:(", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
                     }
 
 
