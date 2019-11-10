@@ -19,10 +19,10 @@ public class RegTool {
     }
 
     /**
-     * 是否符合邮箱校验
+     * email is vaild or not
      *
      * @param email
-     * @return true为包含，false为不包含
+     * @return true is valid , false otherwises
      */
     public static boolean isEmail(String email) {
         //"\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"
