@@ -1,5 +1,7 @@
 package felipemodesto.uottawa.project;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -21,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.KeyStore;
 import java.util.List;
 
 public class Second extends AppCompatActivity {
@@ -31,7 +34,7 @@ public class Second extends AppCompatActivity {
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
     DatabaseReference DatabaseUser;
-    private boolean check;
+    boolean check= true;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,23 +106,33 @@ public class Second extends AppCompatActivity {
         { return   false;
         }
     }
+    protected void dialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(Second.this);
+        builder.setMessage("You have input an email with account, Do you want to log in or change an accouunt");
+        builder.setTitle("Account found");
+        builder.setPositiveButton("Sign in", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                back();
+            }});
+        builder.setNegativeButton("Register", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Intent register = new Intent(getApplicationContext(), Second.class);
+                startActivity(register);
+            }
+        });
+        builder.create().show();
+    }
 
   public void checkifthisemailhasaccount(final String email) {
         if (!email.equals("")) {
-            if (!RegTool.isEmail(email)) {
-                Toast.makeText(Second.this, "The mailbox entered is illegal", Toast.LENGTH_LONG).show();
-                return;
-            }
             mReference = FirebaseDatabase.getInstance().getReference("Users");
             mReference.addValueEventListener(new ValueEventListener() {
-
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
                         String UserEmail = (String) postdataSnapshot.child("email").getValue();
                         System.out.println(UserEmail);
                         if (email.equals(UserEmail)) {
-                            boolean check = false;
-                            System.out.println(check);
+                            dialog();
                         }
                     }
                 }
@@ -140,14 +153,10 @@ public class Second extends AppCompatActivity {
         String status = getStatus();
         String gender = getGender();
         checkifthisemailhasaccount(email);
-        System.out.println(check);
-        System.out.println(check==false);
-        if(!check){
-            Toast.makeText(Second.this, "Your email has an account,change an email", Toast.LENGTH_LONG).show();
-            check=true;
-        }else if (email.equals("")) {
+        if (email.equals("")) {
             Toast.makeText(Second.this, "Email is empty", Toast.LENGTH_LONG).show();
-        }else if (status.equals("Empty")) {
+        }
+        else if (status.equals("Empty")) {
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
