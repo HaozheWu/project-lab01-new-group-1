@@ -104,31 +104,35 @@ public class Second extends AppCompatActivity {
         }
     }
 
-    public void checkifthisemailhasaccount(final String email){
-        if (!email.equals("")){
-        mReference = FirebaseDatabase.getInstance().getReference("Users");
-        mReference.addValueEventListener(new ValueEventListener() {
-
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
-                    String UserEmail = (String) postdataSnapshot.child("email").getValue();
-                    System.out.println(UserEmail);
-                    if (email.equals(UserEmail)) {
-                     boolean check=false;
-                     System.out.println(check);
-                    }
-
-                }
+  public void checkifthisemailhasaccount(final String email) {
+        if (!email.equals("")) {
+            if (!RegTool.isEmail(email)) {
+                Toast.makeText(Second.this, "The mailbox entered is illegal", Toast.LENGTH_LONG).show();
+                return;
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Second.this, "Firebase Error Try again later", Toast.LENGTH_LONG).show();
-                EditText et1 = (EditText) findViewById(R.id.email);
-                et1.setText("");
-            }});
-    }
-    }
+            mReference = FirebaseDatabase.getInstance().getReference("Users");
+            mReference.addValueEventListener(new ValueEventListener() {
 
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                        String UserEmail = (String) postdataSnapshot.child("email").getValue();
+                        System.out.println(UserEmail);
+                        if (email.equals(UserEmail)) {
+                            boolean check = false;
+                            System.out.println(check);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(Second.this, "Firebase Error Try again later", Toast.LENGTH_LONG).show();
+                    EditText et1 = (EditText) findViewById(R.id.email);
+                    et1.setText("");
+                }
+            });
+        }
+    }
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
         String passward = getUserPass();
