@@ -16,6 +16,7 @@ EditText user;
   1 -- 1 welcomepatient;
   1 -- 1 WelcomePatients;
   1 -- * User;
+  1 -- 1 RegTool;
 onCreate(Bundle saveInsatnceState){}
   
   openRegister(){}
@@ -46,6 +47,13 @@ EditText email;
  openAdmin(){}
  openadmin(){}
 }
+class RegTool{
+     
+      1 -- 1 Second;
+ismatch(){}
+    isEmail(){}
+    isNullString(){}
+}
 
 class Second{
      
@@ -56,11 +64,16 @@ EditText email;
   String TAG = "Second";
   FirebaseDatabase mDatabse;
   DatabaseReference DatabaseUser;
-  boolean check;
+ 
   
     1 -- * User;
   1 -- 1 passwordEncryption;
+  * -- * welcomepatient;
 onCreate(Bundle savedInstanceState) {}
+  
+  
+  
+  check(){}
   
   back(){}
   
@@ -76,7 +89,7 @@ onCreate(Bundle savedInstanceState) {}
   
   openAdmin(){}
   
-  checkifthisemailhasaccount(final String email){}
+  
   
  Onclick_signup(View v){}
 }
@@ -246,32 +259,34 @@ namespace -;
 
 class MainActivity
 {
-  position 50 30 109 45;
+  position 21 9 243 196;
   position.association MainActivity__Second 243,267 0,259;
   position.association MainActivity__welcomeadmin 243,330 0,18;
   position.association MainActivity__welcomemployee 139,333 126,0;
   position.association MainActivity__welcomepatient 243,286 0,40;
   position.association MainActivity__WelcomePatients 189,333 47,0;
   position.association MainActivity__User 243,218 0,36;
+  position.association MainActivity__RegTool 243,192 0,2;
 }
 
 class ManageAccount
 {
-  position 341 28 243 214;
+  position 393 44 243 144;
   position.association ManageAccount__Second 243,171 0,165;
   }
 
 class Second
 {
-  position 623 31 257 143;
+  position 769 52 257 179;
   position.association Second__User 202,333 95,0;
   position.association Second__passwordEncryption 115,333 159,0;
+  position.association Second__welcomepatient 0,113 204,0;
 }
 
 class ServiceList
 {
   position 40 379 278 129;
-    position.association ServiceList__service 201,129 251,79;
+    position.association ServiceList__service 278,102 0,92;
   position.association ServiceList__Services 278,50 0,44;
   position.association ServiceList__Services 278,52 0,44;
   position.association ServiceList__service 217,75 257,29;
@@ -279,36 +294,36 @@ class ServiceList
 
 class User
 {
-  position 735 379 387 231;
+  position 779 325 387 144;
 }
 
 class Services
 {
-  position 334 390 109 126;
-      position.association Services__WelcomePatients 228,299 113,0;
+  position 365 261 372 302;
+      position.association Services__WelcomePatients 228,302 91,96;
   position.association Services__welcomemployee 0,100 209,0;
 }
 
 class WelcomePatients
 {
-  position 464 745 222 95;
+  position 494 497 222 58;
   position.association WelcomePatients__welcomepatient 144,0 196,28;
 }
 
 class passwordEncryption
 {
-  position 466 865 278 78;
+  position 729 701 278 41;
 }
 
 class service
 {
-  position 22 700 418 350;
+  position 258 411 418 319;
   position.association service__welcomeadmin 418,84 0,128;
 }
 
 class welcomeadmin
 {
-  position 723 641 243 197;
+  position 719 582 243 56;
 }
 
 class welcomemployee
@@ -319,4 +334,11 @@ class welcomemployee
 class welcomepatient
 {
   position 348 290 222 95;
+}
+
+class RegTool
+{
+  position 575 235 167 41;
+  position.association RegTool__RegTool:roleName 160,0 167,0;
+  position.association RegTool__Second 155,0 3,179;
 }

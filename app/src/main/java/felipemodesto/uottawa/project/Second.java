@@ -106,53 +106,13 @@ public class Second extends AppCompatActivity {
         { return   false;
         }
     }
-    protected void dialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(Second.this);
-        builder.setMessage("You have input an email with account, Do you want to log in or change an accouunt");
-        builder.setTitle("Account found");
-        builder.setPositiveButton("Sign in", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                back();
-            }});
-        builder.setNegativeButton("Register", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Intent register = new Intent(getApplicationContext(), Second.class);
-                startActivity(register);
-            }
-        });
-        builder.create().show();
-    }
 
-  public void checkifthisemailhasaccount(final String email) {
-        if (!email.equals("")) {
-            mReference = FirebaseDatabase.getInstance().getReference("Users");
-            mReference.addValueEventListener(new ValueEventListener() {
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
-                        String UserEmail = (String) postdataSnapshot.child("email").getValue();
-                        System.out.println(UserEmail);
-                        if (email.equals(UserEmail)) {
-                            dialog();
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(Second.this, "Firebase Error Try again later", Toast.LENGTH_LONG).show();
-                    EditText et1 = (EditText) findViewById(R.id.email);
-                    et1.setText("");
-                }
-            });
-        }
-    }
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
         String passward = getUserPass();
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
-        checkifthisemailhasaccount(email);
         if (email.equals("")) {
             Toast.makeText(Second.this, "Email is empty", Toast.LENGTH_LONG).show();
         }
