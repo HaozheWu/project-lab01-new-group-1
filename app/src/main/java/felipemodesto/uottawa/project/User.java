@@ -1,15 +1,13 @@
 package felipemodesto.uottawa.project;
 
-import java.util.List;
-
 public class User {
     String Id;
-    String Email;
-    String Passward;
-    String Username;
-    String Status ;
-    String Gender;
-    passwordEncryption a;
+     String Email;
+     String Passward;
+     String Username;
+     String Status ;
+     String Gender;
+     passwordEncryption a;
 
     public User(String Id,String Email,String Passward,String Gender, String Username, String status) {
         a=new passwordEncryption();
@@ -19,9 +17,19 @@ public class User {
         this.Gender=Gender;
         this.Username = Username;
         this.Status = status;
-
+    }
+    public User(String Email,String Passward,String Gender, String Username, String status) {
+        a=new passwordEncryption();
+        this.Id=Id;
+        this.Email=Email;
+        this.Passward=a.passwordEncryption(Passward);
+        this.Gender=Gender;
+        this.Username = Username;
+        this.Status = status;
     }
     public User(){}
+
+
     public void setId(String Id){
         this.Id=Id;
     }
@@ -35,7 +43,7 @@ public class User {
         return Username;
     }
     public String getEmail(){
-        return this.Email;
+        return Email;
     }
     public void setEmail(String email){
         this.Email=email;
@@ -44,6 +52,9 @@ public class User {
         this.Passward=a.passwordEncryption(passward);
     }
 
+    public String getPassword(){
+        return Passward;
+    }
    public void setUsername(String username)
    {
         this.Username=username;
@@ -62,22 +73,10 @@ public class User {
     }
 
     public String getGender(){
-        return this.Gender;
-    }
-    public Services getService(){
-        return SS;
-    }
-    public void setService(Services newService){
-        this.SS=newService;
+        return Gender;
     }
 
-    public EmployeeProfiles getEE() {
-        return EE;
-    }
 
-    public void setEE(EmployeeProfiles EE) {
-        this.EE = EE;
-    }
 }
 
 

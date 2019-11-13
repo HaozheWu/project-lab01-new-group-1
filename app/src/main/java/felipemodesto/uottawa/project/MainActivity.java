@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     private EditText user;
     private EditText passward;
+    private FirebaseAuth mAuth;
     private passwordEncryption a;
 
     FirebaseDatabase mDatabase;
@@ -54,17 +55,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //public void openpatient() {
-       // Intent intent = new Intent(getApplicationContext(), Welcomepatients.class);
-       // startActivity(intent);
-    //}
+    public void openpatient() {
+        Intent intent = new Intent(getApplicationContext(),welcomepatient.class);
+        startActivity(intent);
+    }
 
-    public void activity_logIn(View view) {
+   public void activity_logIn(View view) {
         final String username = user.getText().toString();
         final String Passwards =passward.getText().toString();
         if (Passwards.equals("") || username.equals("")) {
             Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
         } else {
+            if (!RegTool.isEmail(username)) {
+                Toast.makeText(MainActivity.this, "The mailbox entered is illegal", Toast.LENGTH_LONG).show();
+                return;
+            }
             a=new passwordEncryption();
             final String hashpass=a.passwordEncryption(Passwards);
             mReference = FirebaseDatabase.getInstance().getReference("Users");
@@ -75,18 +80,17 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
                         String UserEmail = (String)postdataSnapshot.child("email").getValue();
                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
-                        System.out.println(UserEmail);
-                        System.out.println(UserPassward);
                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
                             success=true;
                            statuas=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
+                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
                                 openAdmin();
                             } else if (statuas.equals("Employee")) {
                                 openEmployee();//Should create an activity Welcome Emploee here
                             } else {
-                                //openpatient();//Should create an activity Welcome Patient here
+                                openpatient();//Should create an activity Welcome Patient here
                             }
                         }
                     }
