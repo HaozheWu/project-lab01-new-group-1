@@ -1,11 +1,14 @@
 package felipemodesto.uottawa.project;
 
-class Services {
+import android.widget.ListView;
+
+public class Services {
     private String _id;
     private String _Servicesname;
     private String  _emploeename;
     private String  _emploeerole;
     private double _price;
+
 
     public Services() {
     }
