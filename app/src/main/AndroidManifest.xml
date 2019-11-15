@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".welcomepatient"></activity>
+        <activity android:name=".timecontrol"></activity>
+        <activity android:name=".myservices" />
+        <activity android:name=".employeecenter" />
+        <activity android:name=".welcomepatient" />
         <activity android:name=".ManageAccount" />
         <activity android:name=".service" />
-        <activity android:name=".Welcomepatients" />
+        <activity android:name=".emploeeprofiles" />
+        <activity android:name=".Serviceforemployee" />
         <activity android:name=".welcomeemployee" />
         <activity android:name=".welcomeadmin" />
         <activity android:name=".Second" />

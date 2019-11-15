@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser mUser;
     public User currentUser;
     public static String currentusername;
+    public static String id;
 
 
     protected void onCreate(Bundle saveInstanceState) {
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(UserPassward);
                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
                             success=true;
+                            id=(String)postdataSnapshot.child("id").getValue();
                            statuas=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof

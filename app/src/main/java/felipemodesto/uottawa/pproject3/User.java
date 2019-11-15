@@ -3,6 +3,7 @@ package felipemodesto.uottawa.project;
 import java.util.List;
 
 public class User {
+<<<<<<< Updated upstream:app/src/main/java/felipemodesto/uottawa/pproject3/User.java
     String Id;
     String Email;
     String Passward;
@@ -10,6 +11,15 @@ public class User {
     String Status ;
     String Gender;
     passwordEncryption a;
+=======
+        String Id;
+        String Email;
+        String Passward;
+        String Username;
+        String Status ;
+        String Gender;
+        passwordEncryption a;
+>>>>>>> Stashed changes:app/src/main/java/felipemodesto/uottawa/project/User.java
 
     public User(String Id,String Email,String Passward,String Gender, String Username, String status) {
         a=new passwordEncryption();

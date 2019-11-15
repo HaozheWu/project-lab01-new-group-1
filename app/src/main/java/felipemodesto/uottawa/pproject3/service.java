@@ -72,21 +72,21 @@ public class service extends AppCompatActivity {
 
         listViewService.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-            @Override
+        @Override
 
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Services Service = Services.get(i);
+            Services Service = Services.get(i);
 
-                showUpdateDeleteDialog(Service.getId(), Service.getServicesName());
+            showUpdateDeleteDialog(Service.getId(), Service.getServicesName());
 
-                return true;
+            return true;
 
-            }
+        }
 
-        });
+    });
 
-    }
+}
 
 
     @Override
@@ -165,14 +165,12 @@ public class service extends AppCompatActivity {
                 String prices = editTextPrice.getText().toString();
                 String emploeename = editTextEmploeeName.getText().toString().trim();
                 String emploeerole = Emploeerole.getText().toString().trim();
-                System.out.println(editTextPrice.getText().toString());
                 if (prices.isEmpty() || isNumeric(prices) == false) {
                     Toast.makeText(getApplicationContext(), "The price should be number", Toast.LENGTH_LONG).show();
                 } else if ((name.isEmpty()) || (emploeename.isEmpty()) || (emploeerole.isEmpty())) {
                     Toast.makeText(getApplicationContext(), "fill  the information", Toast.LENGTH_LONG).show();
                 } else {
-                    double price = Double.parseDouble(String.valueOf(prices));
-                    updateServices(servicesId, name, price, emploeename, emploeerole);
+                    updateServices(servicesId, name, prices, emploeename, emploeerole);
                     b.dismiss();
                 }
 
@@ -217,7 +215,7 @@ public class service extends AppCompatActivity {
     }
 
 
-    private void updateServices(String id, String name, double price, String Emploeename, String Emploeerole) {
+    private void updateServices(String id, String name, String price, String Emploeename, String Emploeerole) {
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Services").child(id);
         Services services = new Services(id, name, price, Emploeename, Emploeerole);
         dR.setValue(services);
@@ -242,9 +240,8 @@ public class service extends AppCompatActivity {
         } else if ((name.isEmpty()) || (emploeename.isEmpty()) || (emploeerole.isEmpty())) {
             Toast.makeText(getApplicationContext(), "fill  the information", Toast.LENGTH_LONG).show();
         } else {
-            double price = Double.parseDouble(String.valueOf(prices));
             String id = databaseServices.push().getKey();
-            Services product = new Services(id, name, price, emploeename, emploeerole);
+            Services product = new Services(id, name, prices, emploeename, emploeerole);
             databaseServices.child(id).setValue(product);
             editTextName.setText("");
             editTextPrice.setText("");

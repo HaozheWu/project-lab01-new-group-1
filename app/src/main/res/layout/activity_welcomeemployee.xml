@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".welcomeemployee">
 
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
+        android:onClick="back"
+        android:text="Button" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,11 +21,12 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="72dp" />
+            android:layout_height="72dp"
+            android:onClick="back" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="197dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
@@ -67,18 +75,34 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="102dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textSize="25sp"
+                android:text="You have logged in our system as an employee."
                 android:textColor="#FA0A0000"
-                android:text="You have logged in our system as an employee." />
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:onClick="Onclick_signUp"
+                android:text="My Employee Center" />
         </LinearLayout>
 
 

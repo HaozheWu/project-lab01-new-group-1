@@ -7,19 +7,19 @@ public class Services {
     private String _Servicesname;
     private String  _emploeename;
     private String  _emploeerole;
-    private double _price;
+    private String _price;
 
 
     public Services() {
     }
-    public Services(String id, String Servicesnames, double price,String emploeename,String emploeerole) {
+    public Services(String id, String Servicesnames,String  price,String emploeename,String emploeerole) {
         _id = id;
         _Servicesname = Servicesnames;
         _price = price;
         _emploeename=emploeename;
         _emploeerole=emploeerole;
     }
-    public Services(String Servicesnames, double price,String emploeename,String emploeerole) {
+    public Services(String Servicesnames, String price,String emploeename,String emploeerole) {
         _Servicesname = Servicesnames;
         _price = price;
         _emploeename=emploeename;
@@ -54,10 +54,10 @@ public class Services {
     public String getServicesName() {
         return _Servicesname;
     }
-    public void setPrice(double price) {
+    public void setPrice( String price) {
         _price = price;
     }
-    public double getPrice() {
+    public String  getPrice() {
         return _price;
     }
 }

@@ -8,9 +8,9 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< Updated upstream:app/src/main/java/felipemodesto/uottawa/pproject3/Second.java
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
+=======
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+>>>>>>> Stashed changes:app/src/main/java/felipemodesto/uottawa/project/Second.java
 
 public class Second extends AppCompatActivity {
     private EditText email;
@@ -28,8 +32,15 @@ public class Second extends AppCompatActivity {
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
     DatabaseReference DatabaseUser;
+<<<<<<< Updated upstream:app/src/main/java/felipemodesto/uottawa/pproject3/Second.java
     public User result;
     public static String idforsignup;
+=======
+    boolean check= true;
+    public static String idforsignup;
+
+
+>>>>>>> Stashed changes:app/src/main/java/felipemodesto/uottawa/project/Second.java
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
@@ -116,7 +127,13 @@ public class Second extends AppCompatActivity {
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
+<<<<<<< Updated upstream:app/src/main/java/felipemodesto/uottawa/pproject3/Second.java
         if (status.equals("Empty")) {
+=======
+        if (email.equals("")) {
+            Toast.makeText(Second.this, "Email is empty", Toast.LENGTH_LONG).show();
+        } else if (status.equals("Empty")) {
+>>>>>>> Stashed changes:app/src/main/java/felipemodesto/uottawa/project/Second.java
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         }else if(test(username)==false){
             Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
@@ -130,12 +147,36 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else if (gender.equals("Empty")) {
             Toast.makeText(Second.this, "Gender should be selected", Toast.LENGTH_LONG).show();
+<<<<<<< Updated upstream:app/src/main/java/felipemodesto/uottawa/pproject3/Second.java
         }
         else {
             String id = DatabaseUser.push().getKey();
             idforsignup=id;
             result  = new User(id,email,passward,gender, username, status);
                         DatabaseUser.child(id).setValue(result);
+=======
+        } else if (test(username) == false) {
+            Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
+        } else {
+            String id = DatabaseUser.push().getKey();
+            final User result = new User(id, email, passward, gender, username, status);
+            idforsignup = id;
+            DatabaseUser.child(id).setValue(result);
+            Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
+
+            if (status.equals("Employee")) {
+                openProfile();
+            } else {
+                back();
+            }
+        }
+    }
+        public void openProfile () {
+            Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
+            startActivity(intent);
+        }
+    }
+>>>>>>> Stashed changes:app/src/main/java/felipemodesto/uottawa/project/Second.java
 
                     }
         if(status=="Emploee"){
