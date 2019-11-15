@@ -84,7 +84,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="(Please Enter User Name)"
+                    android:hint="(Please Enter Email Address)"
                     android:inputType="textPersonName" />
 
             </LinearLayout>
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:ems="10"
-                android:hint="(Please Enter  Password)"
+                android:hint="(Please Enter Password)"
                 android:inputType="textPassword" />
         </LinearLayout>
 
