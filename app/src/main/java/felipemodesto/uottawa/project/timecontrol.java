@@ -142,6 +142,8 @@ public class timecontrol extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 e.setText(items[i]);
+                System.out.println(items[i]);
+                System.out.println(items[0]);
                 day = items[i];
             }
         });

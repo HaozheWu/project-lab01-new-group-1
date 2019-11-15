@@ -66,7 +66,6 @@ public class ManageAccount extends AppCompatActivity {
                         openAdmin();
                     }
                     else{
-                        System.out.println(success);
                         Toast.makeText(ManageAccount.this, "Remove Fail, checking if the account valid", Toast.LENGTH_LONG).show();
                     }
                 }
