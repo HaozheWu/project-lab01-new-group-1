@@ -48,13 +48,14 @@ public class localJunitTest {
      */
     @Test
     public void checkUser(){
+        String id = "12";
         String Email = "email@email.com";
         String Passward="#io12365";
         String Username="belly";
         String Status = "admin";
         String Gender = "female" ;
 
-        User user =new User(Email,Passward,Gender,Username,Status);
+        User user =new User(id,Email,Passward,Gender,Username,Status);
         assertNotNull(user);
         assertEquals(Email,user.getEmail());
         //using not equal Since passwordEncryption
@@ -71,18 +72,18 @@ public class localJunitTest {
      */
     @Test
     public void checkServices(){
-         String _Servicesname = "Allergy";
-         String  _emploeename = "Liliya";
-         String  _emploeerole = "employee";
-         double _price = 112.25 ;
+        String _id = "13";
+        String _Servicesname = "Allergy";
+        String  _emploeename = "Liliya";
+        String  _emploeerole = "employee";
+        String  _price = "112.25" ;
 
-        Services service = new Services( _Servicesname, _price,_emploeename,_emploeerole);
+        Services service = new Services( _id, _Servicesname, _price,_emploeename,_emploeerole);
         assertNotNull(service);
         assertEquals(_Servicesname,service.getServicesName());
         assertEquals(_emploeename,service.get_emploeename());
         assertEquals(_emploeerole,service.get_emploeerole());
-        assertEquals(_price,service.getPrice(),0);
-    }
+        assertEquals(_price,service.getPrice());
 
 
 
