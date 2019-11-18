@@ -9,6 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <Space
@@ -22,7 +24,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView2"
                 android:layout_width="69dp"
                 android:layout_height="74dp"
                 android:layout_gravity="center"
@@ -47,19 +49,19 @@
                     android:id="@+id/subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:layout_marginLeft="40dp"
-                    android:text="Clinic Walk In Service" />
+                    android:layout_marginLeft="22dp"
+                    android:fontFamily="monospace"
+                    android:text="Employee Centre"
+                    android:textColor="#FFFFA200" />
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="412dp"
-            android:layout_height="59dp"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -74,14 +76,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:text="Welcome"
+                    android:textColor="#FD030000"
                     android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/ename"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_weight="1"
                     android:text="TextView" />
 
             </LinearLayout>
@@ -89,8 +91,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="407dp"
-            android:layout_height="42dp"
+            android:layout_width="340dp"
+            android:layout_height="33dp"
             android:layout_gravity="center|center_horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -102,46 +104,50 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:text="Address:"
+                android:textColor="#FD030000"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/Eaddress"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="35dp"
                 android:layout_weight="1"
                 android:text="TextView" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="411dp"
-            android:layout_height="41dp"
+            android:layout_width="340dp"
+            android:layout_height="46dp"
             android:layout_gravity="center|center_horizontal|center_vertical">
 
             <TextView
                 android:id="@+id/textView29"
-                android:layout_width="4dp"
-                android:layout_height="match_parent"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_weight="0.0004"
-                android:text="Phone Number:" />
+                android:text="Phone Number:"
+                android:textColor="#FD030000" />
 
             <TextView
                 android:id="@+id/editText11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="0.001"
                 android:text="TextView" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="414dp"
-            android:layout_height="45dp"
+            android:layout_width="340dp"
+            android:layout_height="30dp"
             android:layout_gravity="center|center_horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -152,6 +158,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_weight="0.000001"
                 android:text="company:"
+                android:textColor="#FD030000"
                 android:textSize="15sp" />
 
             <TextView
@@ -165,8 +172,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -175,7 +183,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_weight="0.01"
-                android:text="Licenced:" />
+                android:text="Licenced:"
+                android:textColor="#FD030000" />
 
             <TextView
                 android:id="@+id/editText10"
@@ -188,57 +197,119 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="206dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="40dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:onClick="time"
-                android:text="My Working Time Control"
-                android:textSize="8sp" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="50dp"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/employee" />
+
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_line_while"
+                    android:onClick="time"
+                    android:text="My Working Time Control"
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_weight="1"
-                android:onClick="openmanagement"
-                android:text="Service Market"
-                android:textSize="8sp" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/servcemarket"
+                    app:srcCompat="@drawable/servcemarket" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_line_while"
+                    android:onClick="openmanagement"
+                    android:text="Service Market"
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="13sp" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/button14"
-                android:layout_width="40dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:onClick="Onclick_signUp"
-                android:text="My Service Process"
-                android:textSize="8sp" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_weight="1"
-                android:onClick="back"
-                android:text="log out"
-                android:textSize="8sp" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/serverceprocess"
+                    app:srcCompat="@drawable/serverceprocess" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_line_while"
+                    android:onClick="Onclick_signUp"
+                    android:text="My Service Process"
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/louout"
+                    app:srcCompat="@drawable/louout" />
+
+                <Button
+                    android:id="@+id/buttonLogOut"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_line_while"
+                    android:onClick="back"
+                    android:text="log out"
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
