@@ -8,14 +8,14 @@
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter name" />
+        android:hint="Enter Name" />
 
     <EditText
         android:id="@+id/editTextPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextName"
-        android:hint="Enter price" />
+        android:hint="Enter Price" />
 
     <EditText
         android:id="@+id/editTextEmploeeName"
