@@ -212,18 +212,19 @@ public class timecontrol extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Time oldtime = postSnapshot.getValue(Time.class);
-                    a.setText(oldtime.getStarthour());
-                    b.setText(oldtime.getStartminute());
-                    c.setText(oldtime.getEndhour());
-                    d.setText(oldtime.getEndminute());
-                    e.setText(oldtime.getWeekday());
-                    day = oldtime.getWeekday();
-                    starttime = oldtime.getStarthour();
-                    startminute = oldtime.getStartminute();
-                    endtime = oldtime.getEndhour();
-                    endminute = oldtime.getEndminute();
-                    ids = oldtime.getId();
-
+                    if (oldtime.getId() == servicesId) {
+                        a.setText(oldtime.getStarthour());
+                        b.setText(oldtime.getStartminute());
+                        c.setText(oldtime.getEndhour());
+                        d.setText(oldtime.getEndminute());
+                        e.setText(oldtime.getWeekday());
+                        day = oldtime.getWeekday();
+                        starttime = oldtime.getStarthour();
+                        startminute = oldtime.getStartminute();
+                        endtime = oldtime.getEndhour();
+                        endminute = oldtime.getEndminute();
+                        ids = oldtime.getId();
+                    }
                 }
             }
 
