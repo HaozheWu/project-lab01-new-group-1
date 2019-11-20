@@ -98,7 +98,7 @@ public class localJunitTest {
         String Address ="182 Riverside";
         String Phone = "1234567890";
         String Licenced ="yes";
-        String Generalinfo = "I have been a dentist 10 years";
+        String Generalinfo = "I have been a dentist for 10 years";
 
         Employeeprofile employeeprofile = new Employeeprofile(id,Address,Phone,Company,Licenced,Generalinfo);
         assertNotNull(employeeprofile);
