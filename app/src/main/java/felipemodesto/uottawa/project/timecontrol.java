@@ -36,12 +36,12 @@ import static felipemodesto.uottawa.project.MainActivity.id;
 
 public class timecontrol extends AppCompatActivity {
     static TextView a, b, c, d, e;
-    static String day, starttime, startminute, endtime, endminute, ids;
+    static String day, starttime, startminute, endtime, endminute, ids, publicid;
     private AlertDialog alertDialog2;
     DatabaseReference mReference;
     ListView listViewService;
     List<Time> times;
-    DatabaseReference databaseServices;
+    DatabaseReference databaseServices,mReference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class timecontrol extends AppCompatActivity {
         listViewService = (ListView) findViewById(R.id.listViewServices);
         times = new ArrayList<>();
         databaseServices = FirebaseDatabase.getInstance().getReference("Users").child(MainActivity.id).child("time");
+        mReference2 =FirebaseDatabase.getInstance().getReference("TimeforEmploee");
         a = (TextView) findViewById(R.id.textView21);
         b = (TextView) findViewById(R.id.textView25);
         c = (TextView) findViewById(R.id.textView27);
@@ -62,6 +63,7 @@ public class timecontrol extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 Time time = times.get(i);
+                System.out.println(time.getId());
                 showUpdateDeleteDialog(time.getId());
                 return true;
 
@@ -93,6 +95,7 @@ public class timecontrol extends AppCompatActivity {
             String bb;
             bb = minute + "";
             startminute = bb;
+            System.out.println(aa);
             a.setText(aa);
             b.setText(bb);
         }
@@ -169,7 +172,14 @@ public class timecontrol extends AppCompatActivity {
         time.setStartminute(startminute);
         time.setEndhour(endtime);
         time.setEndminute(endminute);
+
         if (time.timeavilable()) {
+
+            String ids= mReference2.push().getKey();
+            time.setId(MainActivity.id);
+            time.setPublicid(ids);
+            mReference2.child(ids).setValue(time);
+
             mReference = FirebaseDatabase.getInstance().getReference("Users").child(id).child("time");
             String id = mReference.push().getKey();
             time.setId(id);
@@ -224,6 +234,7 @@ public class timecontrol extends AppCompatActivity {
                         endtime = oldtime.getEndhour();
                         endminute = oldtime.getEndminute();
                         ids = oldtime.getId();
+                        publicid = oldtime.getPublicid();
                     }
                 }
             }
@@ -235,7 +246,7 @@ public class timecontrol extends AppCompatActivity {
         });
     }
 
-    public void update(String ids) {
+    public void update(final String ids) {
         if (ids == null) {
             Toast.makeText(timecontrol.this, "Please choose existing time first", Toast.LENGTH_SHORT).show();
         } else {
@@ -249,32 +260,35 @@ public class timecontrol extends AppCompatActivity {
             time.setStartminute(startminute);
             time.setEndhour(endtime);
             time.setEndminute(endminute);
-            time.setId(ids);
+            time.setId(MainActivity.id);
+            time.setPublicid(publicid);
             if (time.timeavilable()) {
+                mReference2.child(publicid).setValue(time);
+                time.setId(ids);
                 databaseServices.child(ids).setValue(time);
                 Toast.makeText(timecontrol.this, "updating Success", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(timecontrol.this, "Logic Error，check The starting time and ending time", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+                        }
+                    }
+                }
 
-    public void update(View v) {
+                public void update(View v) {
         update(ids);
     }
 
     public void delete(View v) {
-        delete(ids);
-    }
-
-    public void delete(final String ids) {
         if (ids == null) {
             Toast.makeText(timecontrol.this, "Please choose existing time first", Toast.LENGTH_SHORT).show();
         } else {
+
             databaseServices.child(ids).removeValue();
-            Toast.makeText(timecontrol.this, "Delete Successful", Toast.LENGTH_SHORT).show();
+            mReference2.child(publicid).removeValue();
+        }
     }
-}}
+
+
+}
 
 
 

@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class passwordEncryption {
 
-    public String passwordEncryption(String password) {
+    public static String passwordEncryption(String password) {
         String generatedPassword = null;
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

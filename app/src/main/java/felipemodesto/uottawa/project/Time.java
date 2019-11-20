@@ -7,12 +7,14 @@ public class Time {
     private String endhour;
     private String endminute;
     private String id;
-    Time(String id,String weekday,String starthour,String startminute,String endhour,String endminute){
+    private String publicid;
+    Time(String id,String weekday,String starthour,String startminute,String endhour,String endminute,String publicid){
         this.weekday=weekday;
         this.endhour=endhour;
         this.starthour=starthour;
         this.endminute=endminute;
         this.startminute=startminute;
+        this.publicid=publicid;
     }
 
     public Time() {
@@ -21,6 +23,14 @@ public class Time {
 
     public String getId() {
         return id;
+    }
+
+    public String getPublicid() {
+        return publicid;
+    }
+
+    public void setPublicid(String publicid) {
+        this.publicid = publicid;
     }
 
     public String getEndhour() {

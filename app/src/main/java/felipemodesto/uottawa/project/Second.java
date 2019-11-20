@@ -111,7 +111,7 @@ public class Second extends AppCompatActivity {
 
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
-        String passward = getUserPass();
+        String password = getUserPass();
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
@@ -123,7 +123,7 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
-        } else if (passward.equals("")) {
+        } else if (password.equals("")) {
             Toast.makeText(Second.this, "Password is empty", Toast.LENGTH_LONG).show();
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
@@ -133,7 +133,13 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
         } else {
             String id = DatabaseUser.push().getKey();
-            final User result = new User(id, email, passward, gender, username, status);
+            final User result = new User();
+            result.setEmail(email);
+            result.setId(id);
+            result.setGender(gender);
+            result.setSatus(status);
+            result.setUsername(username);
+            result.setPassword(password);
             idforsignup = id;
             DatabaseUser.child(id).setValue(result);
             Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
@@ -147,8 +153,8 @@ public class Second extends AppCompatActivity {
         public void openProfile () {
             Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
             startActivity(intent);
-        }
-    }
+
+    }}
 
 
 

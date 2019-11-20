@@ -25,7 +25,7 @@ import java.util.List;
 public class myservices extends AppCompatActivity {
     ListView listViewService;
     List<Services> Services;
-    DatabaseReference databaseServices;
+    DatabaseReference databaseServices,databaseServices2;
     Services aa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class myservices extends AppCompatActivity {
         Services = new ArrayList<>();
 
         databaseServices = FirebaseDatabase.getInstance().getReference("Users").child(MainActivity.id).child("Services");
+        databaseServices2=FirebaseDatabase.getInstance().getReference("EmploeeServices");
         listViewService = (ListView) findViewById(R.id.listViewServices);
         listViewService.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
@@ -84,17 +85,22 @@ public class myservices extends AppCompatActivity {
         builder.create().show();
     }
     public void delete(final String a) {
+
         databaseServices.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     aa = postSnapshot.getValue(Services.class);
+
                     if (aa.getId().equals(a)){
                         aa.set_emploeerole("UNKNOWN");
                         aa.set_emploeename("UNKNOWN");
                         String newid=FirebaseDatabase.getInstance().getReference("Services").push().getKey();
                         aa.setId(newid);
+                        String iddd=aa.get_publicid();
+                        System.out.println(iddd);
+                        FirebaseDatabase.getInstance().getReference("EmploeeServices").child(iddd).removeValue();
                         FirebaseDatabase.getInstance().getReference("Services").child(newid).setValue(aa);
                     }
                 }

@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="back"
+            android:text="Logout" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="80dp" />
@@ -106,6 +113,20 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="center"
+            android:text="Search for Services" />
+
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="check"
+            android:text="Check my Appointment" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
