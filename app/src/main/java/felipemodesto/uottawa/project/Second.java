@@ -42,13 +42,13 @@ public class Second extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
         mDatabase = FirebaseDatabase.getInstance();
         DatabaseUser=FirebaseDatabase.getInstance().getReference("Users");
     }
     public void back() {
-        Intent register = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(register);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
     public String getUserEmail() {
         EditText et1 = (EditText) findViewById(R.id.email);
@@ -84,20 +84,16 @@ public class Second extends AppCompatActivity {
     public String getGender() {
         RadioGroup status = (RadioGroup) findViewById(R.id.genderSelect);
         int pos = status.getCheckedRadioButtonId();
-        int b =R.id.check_male;
-        int c =R.id.check_female;
-        if(pos==b){
+        int b = R.id.check_male;
+        int c = R.id.check_female;
+        if (pos == b) {
             return "male";
-        }else if(pos==c){
+        } else if (pos == c) {
             return "female";
         }
         return "Empty";
     }
 
-    public void openAdmin() {
-        Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
-        startActivity(intent);
-    }
     public  static   boolean   test(String   s)
     { char   c   =   s.charAt(0);
         int   i   =(int)c;
@@ -144,8 +140,8 @@ public class Second extends AppCompatActivity {
             DatabaseUser.child(id).setValue(result);
             Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
             if (status.equals("Employee")) {
-                openProfile();
-            } else {
+                openProfile();}
+            else {
                 back();
             }
         }
@@ -153,8 +149,8 @@ public class Second extends AppCompatActivity {
         public void openProfile () {
             Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
             startActivity(intent);
-
-    }}
+    }
+}
 
 
 

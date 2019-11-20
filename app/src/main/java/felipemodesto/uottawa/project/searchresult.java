@@ -52,9 +52,9 @@ public class searchresult extends AppCompatActivity {
         }
     });
     }
-    private void Back(View view) {
-        Intent intent = new Intent(getApplicationContext(), welcomepatient.class);
-        startActivity(intent);}
+    private void back(View view) {
+        finish();
+    }
     protected void onStart() {
         super.onStart();
         databaseServices.addValueEventListener(new ValueEventListener() {

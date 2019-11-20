@@ -250,7 +250,7 @@ public class timecontrol extends AppCompatActivity {
             Toast.makeText(timecontrol.this, "Please choose existing time first", Toast.LENGTH_SHORT).show();
         } else {
             if (day == null || starttime == null || startminute == null || endtime == null || endminute == null) {
-                Toast.makeText(timecontrol.this, "Please fullfill the information", Toast.LENGTH_SHORT).show();
+                Toast.makeText(timecontrol.this, "Please full-fill the information", Toast.LENGTH_SHORT).show();
                 return;
             }
             Time time = new Time();

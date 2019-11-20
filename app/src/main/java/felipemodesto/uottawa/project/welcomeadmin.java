@@ -30,8 +30,10 @@ public class welcomeadmin extends AppCompatActivity {
     public void openService(View view) {
         openService();
     }
+
     public void logout() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
     public void logout(View view) {

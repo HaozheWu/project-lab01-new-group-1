@@ -96,11 +96,8 @@ public class ManageAccount extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
         startActivity(intent);
     }
-    public void openadmin(View view) {
-        openAdmin();
-    }
 
-    private void back(View view){
+    public void back(View view){
         finish();
     }
 }
