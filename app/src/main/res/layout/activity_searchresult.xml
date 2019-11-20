@@ -74,9 +74,14 @@
 
         <Button
             android:id="@+id/button24"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Back To Center" />
+            android:layout_gravity="center"
+            android:background="@drawable/red"
+            android:onClick="back"
+            android:text="Back To Center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="18sp" />
 
         <ListView
             android:id="@+id/result"
