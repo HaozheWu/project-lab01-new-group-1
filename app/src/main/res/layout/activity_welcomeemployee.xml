@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".welcomeemployee">
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="125dp"
-        android:layout_height="60dp"
-        android:onClick="back"
-        android:text="Log out" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +35,7 @@
                     android:layout_width="69dp"
                     android:layout_height="74dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="45dp"
+                    android:layout_marginLeft="60dp"
                     app:srcCompat="@mipmap/ic_clinic_logo_01" />
 
                 <LinearLayout
@@ -111,13 +105,13 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             tools:gravity="center">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="11dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:src="@drawable/centre" />
 
             <Button
@@ -130,6 +124,31 @@
                 android:text="My Employee Center"
                 android:textColor="#F8FFFFFF"
                 android:textSize="19sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                app:srcCompat="@drawable/back" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="5dp"
+                android:background="#34495e"
+                android:onClick="back"
+                android:text=" log out"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp" />
         </LinearLayout>
 
 

@@ -45,7 +45,7 @@
                         android:layout_width="69dp"
                         android:layout_height="74dp"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="55dp"
                         app:srcCompat="@mipmap/ic_clinic_logo_01" />
 
                     <LinearLayout

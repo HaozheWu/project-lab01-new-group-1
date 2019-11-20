@@ -6,31 +6,31 @@
 
     <TextView
         android:id="@+id/textView22"
-        android:layout_width="82dp"
+        android:layout_width="145dp"
         android:layout_height="35dp" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="82dp"
+        android:layout_width="74dp"
         android:layout_height="34dp"
         android:gravity="right" />
 
     <TextView
         android:id="@+id/textView35"
-        android:layout_width="37dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_weight="1"
         android:gravity="left" />
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="57dp"
+        android:layout_width="32dp"
         android:layout_height="34dp"
         android:text="To" />
 
     <TextView
         android:id="@+id/textView33"
-        android:layout_width="22dp"
+        android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_gravity="right|center_horizontal"
         android:layout_weight="1" />

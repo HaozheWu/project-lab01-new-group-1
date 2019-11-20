@@ -191,8 +191,7 @@ public class timecontrol extends AppCompatActivity {
     }
 
     public void back(View v) {
-        Intent register = new Intent(getApplicationContext(), employeecenter.class);
-        startActivity(register);
+        finish();
     }
 
     protected void onStart() {
@@ -286,6 +285,8 @@ public class timecontrol extends AppCompatActivity {
             mReference2.child(publicid).removeValue();
         }
     }
+
+
 
 
 }

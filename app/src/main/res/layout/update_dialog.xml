@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,28 +9,30 @@
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name" />
+        android:hint="Edit name" />
 
-    <EditText
-        android:id="@+id/editTextPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextName"
-        android:hint="Enter Price" />
+    android:id="@+id/editTextPrice"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/editTextName"
+
+    android:hint="Edit price" />
+
+
 
     <EditText
         android:id="@+id/editTextEmploeeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Employee name" />
+        android:hint="Edit Employee name" />
 
     <EditText
         android:id="@+id/Emploeerole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Employee role" />
+        android:hint="Edit Employee role" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,22 +43,35 @@
             android:id="@+id/buttonUpdateProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="Update" />
+            android:text="Update"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="15sp"
+            tools:background="@drawable/blue_button" />
 
         <Button
             android:id="@+id/buttonDeleteProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="15sp"
+            android:background="@drawable/blue_button"
             android:text="Delete" />
 
         <Button
             android:id="@+id/buttonReturn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="ServiceList" />
+            android:background="@drawable/blue_button"
+            android:text="ServiceList"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="15sp" />
 
     </LinearLayout>
 

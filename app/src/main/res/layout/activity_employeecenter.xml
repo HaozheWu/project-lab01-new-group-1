@@ -28,7 +28,7 @@
                 android:layout_width="69dp"
                 android:layout_height="74dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="60dp"
                 app:srcCompat="@mipmap/ic_clinic_logo_01" />
 
             <LinearLayout
@@ -295,7 +295,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/louout"
-                    app:srcCompat="@drawable/louout" />
+                    app:srcCompat="@drawable/back" />
 
                 <Button
                     android:id="@+id/buttonLogOut"
@@ -303,9 +303,9 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_line_while"
+                    android:background="@drawable/green_button"
                     android:onClick="back"
-                    android:text="log out"
+                    android:text="Back"
                     android:textColor="#FAFFFFFF"
                     android:textSize="13sp" />
             </LinearLayout>
