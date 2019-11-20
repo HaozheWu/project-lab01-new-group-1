@@ -11,9 +11,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            android:layout_height="111dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Hours of Work"
+            android:textSize="36sp" />
+
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="#008B3D3D"
+                android:onClick="back"
+                app:srcCompat="@drawable/back111" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

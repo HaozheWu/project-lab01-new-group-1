@@ -21,15 +21,18 @@ public class welcomeadmin extends AppCompatActivity {
     public void openmanagement(View view) {
         openManagement();
     }
+
     public void openManagement() {
         Intent intent = new Intent(getApplicationContext(), ManageAccount.class);
         startActivity(intent);
     }
+
     public void openService(View view) {
         openService();
     }
     public void logout() {
-        finish();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
     public void logout(View view) {
         logout();

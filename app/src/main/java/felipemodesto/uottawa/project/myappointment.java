@@ -94,4 +94,10 @@ public class myappointment extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });}}
+        });}
+
+        public void back(View view){
+            finish();
+        }
+
+}
