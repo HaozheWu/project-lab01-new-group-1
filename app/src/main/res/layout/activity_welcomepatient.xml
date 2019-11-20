@@ -11,13 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="back"
-            android:text="Logout" />
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="80dp" />
@@ -25,54 +18,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="69dp"
+                android:layout_height="74dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="55dp"
+                app:srcCompat="@mipmap/ic_clinic_logo_01" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="243dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    app:srcCompat="@mipmap/ic_title01" />
+
+                <TextView
+                    android:id="@+id/subtitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="69dp"
-                        android:layout_height="74dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="55dp"
-                        app:srcCompat="@mipmap/ic_clinic_logo_01" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="243dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="20dp"
-                            app:srcCompat="@mipmap/ic_title01" />
-
-                        <TextView
-                            android:id="@+id/subtitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="25dp"
-                            android:fontFamily="monospace"
-                            android:text="Patient Service Centre"
-                            android:textColor="#20A4E2" />
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="monospace"
+                    android:text="Patient Service Centre"
+                    android:textColor="#43A047" />
             </LinearLayout>
 
         </LinearLayout>
@@ -91,10 +69,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
-                android:fontFamily="@font/architects_daughter"
+                android:fontFamily="serif-monospace"
                 android:text="Welcome"
                 android:textColor="#FA0A0000"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                tools:fontFamily="serif-monospace" />
 
             <TextView
                 android:id="@+id/name"
@@ -103,7 +82,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="17dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/architects_daughter"
+                android:fontFamily="monospace"
                 android:text="TextView"
                 android:textColor="#020000"
                 android:textSize="30dp" />
@@ -112,21 +91,79 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="50dp" />
 
-        <Button
-            android:id="@+id/button13"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:onClick="center"
-            android:text="Search for Services" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button25"
-            android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/search" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/red"
+                android:onClick="center"
+                android:text="Search for Services"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:onClick="check"
-            android:text="Check my Appointment" />
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="76dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/appointment" />
+
+            <Button
+                android:id="@+id/button25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/red"
+                android:onClick="check"
+                android:text="Check my Appointment"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="76dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/back" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/green_button"
+                android:onClick="back"
+                android:text="Logout"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="18sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

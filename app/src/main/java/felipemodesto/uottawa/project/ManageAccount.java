@@ -63,7 +63,7 @@ public class ManageAccount extends AppCompatActivity {
                     }
                     if(success){
                         Toast.makeText(ManageAccount.this, "Remove Success", Toast.LENGTH_LONG).show();
-                        back();
+                        openAdmin();
                     }
                     else{
                         Toast.makeText(ManageAccount.this, "Remove Fail, checking if the account valid", Toast.LENGTH_LONG).show();
@@ -92,12 +92,15 @@ public class ManageAccount extends AppCompatActivity {
             });
             builder.create().show();
         }
-
-    public void back(View view) {
-        back();
+    public void openAdmin() {
+        Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
+        startActivity(intent);
+    }
+    public void openadmin(View view) {
+        openAdmin();
     }
 
-    private void back(){
+    private void back(View view){
         finish();
     }
 }

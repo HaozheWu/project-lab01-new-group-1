@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
-                android:text="Long press to selecte a selecting" />
+                android:text="Long press to selecting a service" />
         </LinearLayout>
 
         <ListView

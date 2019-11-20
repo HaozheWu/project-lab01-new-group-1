@@ -115,7 +115,7 @@ public class myservices extends AppCompatActivity {
 
         });
     }
-    private void back(View view){
+    public void back(View v) {
         finish();
     }
 }

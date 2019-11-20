@@ -29,12 +29,12 @@ public class welcomeadmin extends AppCompatActivity {
         openService();
     }
     public void logout() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+        finish();
     }
     public void logout(View view) {
         logout();
     }
+
     public void openService() {
         Intent intent = new Intent(getApplicationContext(), service.class);
         startActivity(intent);

@@ -30,4 +30,6 @@ public class welcomepatient extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),myappointment.class);
         startActivity(intent);
     }
+
+
 }

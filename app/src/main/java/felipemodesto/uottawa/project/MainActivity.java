@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         if (UserEmail.equals(username) && (UserPassword.equals(hashpass))) {
                             success=true;
                             id=(String)postdataSnapshot.child("id").getValue();
-                           statuas=(String) postdataSnapshot.child("status").getValue();
+                            statuas=(String) postdataSnapshot.child("status").getValue();
                            currentusername=(String)postdataSnapshot.child("username").getValue();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
