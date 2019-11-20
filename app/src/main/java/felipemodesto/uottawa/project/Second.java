@@ -140,7 +140,7 @@ public class Second extends AppCompatActivity {
             if (status.equals("Employee")) {
                 openProfile();
             } else {
-                back();
+                finish();
             }
         }
     }

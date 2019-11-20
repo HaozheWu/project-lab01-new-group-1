@@ -109,8 +109,7 @@ public class myservices extends AppCompatActivity {
 
         });
     }
-    public void Onclick_signUp(View v) {
-        Intent register = new Intent(getApplicationContext(),employeecenter.class);
-        startActivity(register);
+    public void back(View v) {
+        finish();
     }
 }

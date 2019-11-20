@@ -253,6 +253,10 @@ public class service extends AppCompatActivity {
 
     }
 
+    public void back(View view) {
+        finish();
+    }
+
 
 
 

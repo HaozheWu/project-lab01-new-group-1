@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/green_button"
-                android:onClick="openadmin"
+                android:onClick="back"
                 android:text="Back"
                 android:textColor="#FCFFFFFF"
                 android:textSize="18sp" />

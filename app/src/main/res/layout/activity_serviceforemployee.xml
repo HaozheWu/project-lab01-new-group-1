@@ -24,7 +24,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:background="#008B3D3D"
-                android:onClick="Onclick_signUp"
+                android:onClick="back"
                 app:srcCompat="@drawable/back111" />
         </LinearLayout>
 

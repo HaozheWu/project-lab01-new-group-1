@@ -169,6 +169,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="40dp"
                 android:background="@drawable/green_button"
+                android:onClick="back"
                 android:text="Back     "
                 android:textColor="#FCFFFFFF"
                 android:textSize="15sp" />
