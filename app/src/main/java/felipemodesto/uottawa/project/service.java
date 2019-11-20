@@ -62,6 +62,7 @@ public class service extends AppCompatActivity {
                 addServices();
             }
         });
+
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,21 +73,21 @@ public class service extends AppCompatActivity {
 
         listViewService.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-        @Override
+            @Override
 
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-            Services Service = Services.get(i);
+                Services Service = Services.get(i);
 
-            showUpdateDeleteDialog(Service.getId(), Service.getServicesName());
+                showUpdateDeleteDialog(Service.getId(), Service.getServicesName());
 
-            return true;
+                return true;
 
-        }
+            }
 
-    });
+        });
 
-}
+    }
 
 
     @Override
@@ -148,7 +149,7 @@ public class service extends AppCompatActivity {
         final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteProduct);
 
 
-        dialogBuilder.setTitle("You are editing"+productName+"service and you can choose DELETE or UPDATE "+productName);
+        dialogBuilder.setTitle("You are editing the "+productName+" service" );
 
         final AlertDialog b = dialogBuilder.create();
 
