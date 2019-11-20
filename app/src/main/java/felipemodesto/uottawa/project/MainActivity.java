@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser mUser;
     public User currentUser;
     public static String currentusername;
+    public static String id;
 
 
     protected void onCreate(Bundle saveInstanceState) {
@@ -39,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
         user = (EditText) findViewById(R.id.fieldEmail);
         passward = (EditText) findViewById(R.id.fieldPassword);
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Toast.makeText(MainActivity.this, "Log out Successfully", Toast.LENGTH_LONG).show();
+
+    }
+
 
     public void openRegister() {
         Intent intent = new Intent(getApplicationContext(), Second.class);
@@ -60,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-   public void activity_logIn(View view) {
+    public void activity_logIn(View view) {
         final String username = user.getText().toString();
         final String Passwards =passward.getText().toString();
         if (Passwards.equals("") || username.equals("")) {
@@ -74,37 +83,38 @@ public class MainActivity extends AppCompatActivity {
             final String hashpass=a.passwordEncryption(Passwards);
             mReference = FirebaseDatabase.getInstance().getReference("Users");
             mReference.addValueEventListener(new ValueEventListener() {
-                String statuas;
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    boolean success=false;
-                    for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
-                        String UserEmail = (String)postdataSnapshot.child("email").getValue();
-                        String UserPassward =(String)postdataSnapshot.child("passward").getValue();
-                        if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
-                            success=true;
-                           statuas=(String) postdataSnapshot.child("status").getValue();
-                           currentusername=(String)postdataSnapshot.child("username").getValue();
-                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                            if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
-                                openAdmin();
-                            } else if (statuas.equals("Employee")) {
-                                openEmployee();//Should create an activity Welcome Emploee here
-                            } else {
-                                openpatient();//Should create an activity Welcome Patient here
-                            }
-                        }
-                    }
-                    if(success==false){
-                            Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
-                    }
+                                                 String statuas;
+                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                     boolean success=false;
+                                                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                                                         String UserEmail = (String)postdataSnapshot.child("email").getValue();
+                                                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
+                                                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
+                                                             success=true;
+                                                             id=(String)postdataSnapshot.child("id").getValue();
+                                                             statuas=(String) postdataSnapshot.child("status").getValue();
+                                                             currentusername=(String)postdataSnapshot.child("username").getValue();
+                                                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                                                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                                                                 openAdmin();
+                                                             } else if (statuas.equals("Employee")) {
+                                                                 openEmployee();//Should create an activity Welcome Emploee here
+                                                             } else {
+                                                                 openpatient();//Should create an activity Welcome Patient here
+                                                             }
+                                                         }
+                                                     }
+                                                     if(success==false){
+                                                         Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
+                                                     }
 
 
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
-                 }
-            }
+                                                 }
+                                                 @Override
+                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                     Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
+                                                 }
+                                             }
             );}}
 
     public void activity_signUp(View v) {

@@ -38,7 +38,7 @@ public class ManageAccount extends AppCompatActivity {
     }
     public void activity_logIn(View view) {
         dialog();}
-        public void delete(){
+    public void delete(){
         final String Email = email.getText().toString();
         if (Email.equals("")) {
             Toast.makeText(ManageAccount.this, "Email/Password is empty", Toast.LENGTH_LONG).show();
@@ -63,7 +63,7 @@ public class ManageAccount extends AppCompatActivity {
                     }
                     if(success){
                         Toast.makeText(ManageAccount.this, "Remove Success", Toast.LENGTH_LONG).show();
-                        openAdmin();
+                        finish();
                     }
                     else{
                         Toast.makeText(ManageAccount.this, "Remove Fail, checking if the account valid", Toast.LENGTH_LONG).show();
@@ -77,26 +77,23 @@ public class ManageAccount extends AppCompatActivity {
 
         }}
 
-        protected void dialog(){
+    protected void dialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(ManageAccount.this);
         builder.setMessage("Are you sure you want to delete this account？");
         builder.setTitle(email.getText().toString()+"Deleting Process");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                    delete();
-                }});
+                delete();
+            }});
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
-            });
-            builder.create().show();
-        }
-    public void openAdmin() {
-        Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
-        startActivity(intent);
+        });
+        builder.create().show();
     }
-    public void openadmin(View view) {
-        openAdmin();
+
+    public void back(View view) {
+        finish();
     }
 }

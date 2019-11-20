@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.security.KeyStore;
 import java.util.List;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Second extends AppCompatActivity {
     private EditText email;
@@ -34,8 +35,9 @@ public class Second extends AppCompatActivity {
     private static final String TAG = "Second";
     FirebaseDatabase mDatabase;
     DatabaseReference DatabaseUser;
+    public User result;
+    public static String idforsignup;
     boolean check= true;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +56,8 @@ public class Second extends AppCompatActivity {
         return email;
     }
 
-        public String getUserPass() {
-       EditText et2 = (EditText) findViewById(R.id.password);
+    public String getUserPass() {
+        EditText et2 = (EditText) findViewById(R.id.password);
         String password = et2.getText().toString();
         return password;
     }
@@ -113,6 +115,7 @@ public class Second extends AppCompatActivity {
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
+
         if (email.equals("")) {
             Toast.makeText(Second.this, "Email is empty", Toast.LENGTH_LONG).show();
         }
@@ -126,18 +129,28 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
         } else if (gender.equals("Empty")) {
             Toast.makeText(Second.this, "Gender should be selected", Toast.LENGTH_LONG).show();
-        } else if(test(username)==false){
+        } else if (test(username) == false) {
             Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
-        } else{
+        } else {
             String id = DatabaseUser.push().getKey();
-            final User result  = new User(id,email,passward,gender, username, status);
-                        DatabaseUser.child(id).setValue(result);
-                        Toast.makeText(Second.this, "Registered successfully",Toast.LENGTH_LONG).show();
-                        back();
-                    }}
+            final User result = new User(id, email, passward, gender, username, status);
+            idforsignup = id;
+            DatabaseUser.child(id).setValue(result);
+            Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
+            if (status.equals("Employee")) {
+                openProfile();
+            } else {
+                finish();
+            }
+        }
+    }
+    public void openProfile () {
+        Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
+        startActivity(intent);
+    }
+}
 
 
-                }
 
 
 

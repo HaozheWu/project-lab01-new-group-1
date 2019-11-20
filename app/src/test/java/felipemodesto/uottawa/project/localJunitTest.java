@@ -48,13 +48,14 @@ public class localJunitTest {
      */
     @Test
     public void checkUser(){
+        String id = "12";
         String Email = "email@email.com";
         String Passward="#io12365";
         String Username="belly";
         String Status = "admin";
         String Gender = "female" ;
 
-        User user =new User(Email,Passward,Gender,Username,Status);
+        User user =new User(id,Email,Passward,Gender,Username,Status);
         assertNotNull(user);
         assertEquals(Email,user.getEmail());
         //using not equal Since passwordEncryption
@@ -71,19 +72,59 @@ public class localJunitTest {
      */
     @Test
     public void checkServices(){
-         String _Servicesname = "Allergy";
-         String  _emploeename = "Liliya";
-         String  _emploeerole = "employee";
-         double _price = 112.25 ;
+        String _id = "13";
+        String _Servicesname = "Allergy";
+        String  _emploeename = "Liliya";
+        String  _emploeerole = "employee";
+        String  _price = "112.25" ;
 
-        Services service = new Services( _Servicesname, _price,_emploeename,_emploeerole);
+        Services service = new Services( _id, _Servicesname, _price,_emploeename,_emploeerole);
         assertNotNull(service);
         assertEquals(_Servicesname,service.getServicesName());
         assertEquals(_emploeename,service.get_emploeename());
         assertEquals(_emploeerole,service.get_emploeerole());
-        assertEquals(_price,service.getPrice(),0);
-    }
+        assertEquals(_price,service.getPrice());
 
 
 
     }
+    
+    // two more unit tests for Dev3
+    @Test
+    // test employee profile
+    public void checkEmployeeProfile(){
+        String id = "203";
+        String Company = "Spark";
+        String Address ="182 Riverside";
+        String Phone = "1234567890";
+        String Licenced ="yes";
+        String Generalinfo = "I have been a dentist for 10 years";
+
+        Employeeprofile employeeprofile = new Employeeprofile(id,Address,Phone,Company,Licenced,Generalinfo);
+        assertNotNull(employeeprofile);
+        assertEquals(Company, employeeprofile.getCompany());
+        assertEquals(Address, employeeprofile.getAddress());
+        assertEquals(Phone, employeeprofile.getPhone());
+        assertEquals(Licenced, employeeprofile.getLicenced());
+        assertEquals(Generalinfo, employeeprofile.getGeneralinfo());
+    }
+
+    @Test
+    //test time
+    public void checkTime(){
+        String weekday = "Friday";
+        String starthour = "9";
+        String startminute = "30";
+        String endhour = "18";
+        String endminute = "30";
+        String id = "5";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute);
+        assertNotNull(time);
+        assertEquals(weekday, time.getWeekday());
+        assertEquals(starthour, time.getStarthour());
+        assertEquals(startminute, time.getStartminute());
+        assertEquals(endhour, time.getEndhour());
+        assertEquals(endminute, time.getEndminute());
+        assertNotEquals(id, time.getId());
+    }
+}

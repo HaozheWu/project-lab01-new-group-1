@@ -1,13 +1,15 @@
 package felipemodesto.uottawa.project;
 
 public class User {
+
     String Id;
-     String Email;
-     String Passward;
-     String Username;
-     String Status ;
-     String Gender;
-     passwordEncryption a;
+
+    String Email;
+    String Passward;
+    String Username;
+    String Status ;
+    String Gender;
+    passwordEncryption a;
 
     public User(String Id,String Email,String Passward,String Gender, String Username, String status) {
         a=new passwordEncryption();
@@ -18,17 +20,7 @@ public class User {
         this.Username = Username;
         this.Status = status;
     }
-    public User(String Email,String Passward,String Gender, String Username, String status) {
-        a=new passwordEncryption();
-        this.Id=Id;
-        this.Email=Email;
-        this.Passward=a.passwordEncryption(Passward);
-        this.Gender=Gender;
-        this.Username = Username;
-        this.Status = status;
-    }
     public User(){}
-
 
     public void setId(String Id){
         this.Id=Id;

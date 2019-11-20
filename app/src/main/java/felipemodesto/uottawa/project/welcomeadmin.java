@@ -21,6 +21,7 @@ public class welcomeadmin extends AppCompatActivity {
     public void openmanagement(View view) {
         openManagement();
     }
+
     public void openManagement() {
         Intent intent = new Intent(getApplicationContext(), ManageAccount.class);
         startActivity(intent);
@@ -28,13 +29,22 @@ public class welcomeadmin extends AppCompatActivity {
     public void openService(View view) {
         openService();
     }
+
     public void logout() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+
+        // 设置标记位
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.putExtra("exit", true);
         startActivity(intent);
+
     }
     public void logout(View view) {
         logout();
     }
+
     public void openService() {
         Intent intent = new Intent(getApplicationContext(), service.class);
         startActivity(intent);
