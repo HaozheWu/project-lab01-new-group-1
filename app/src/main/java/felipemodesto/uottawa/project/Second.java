@@ -56,8 +56,8 @@ public class Second extends AppCompatActivity {
         return email;
     }
 
-        public String getUserPass() {
-       EditText et2 = (EditText) findViewById(R.id.password);
+    public String getUserPass() {
+        EditText et2 = (EditText) findViewById(R.id.password);
         String password = et2.getText().toString();
         return password;
     }
@@ -144,11 +144,11 @@ public class Second extends AppCompatActivity {
             }
         }
     }
-        public void openProfile () {
-            Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
-            startActivity(intent);
-        }
+    public void openProfile () {
+        Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
+        startActivity(intent);
     }
+}
 
 
 
