@@ -57,10 +57,53 @@ public class ManageAccount extends AppCompatActivity {
                         String UserEmail = (String) postdataSnapshot.child("email").getValue();
                         if (UserEmail.equals(Email)) {
                             success=true;
-                            String ID=(String)postdataSnapshot.child("id").getValue();
+                            final String ID=(String)postdataSnapshot.child("id").getValue();
                             FirebaseDatabase.getInstance().getReference("Users").child(ID).removeValue();
-                        }
-                    }
+                            FirebaseDatabase.getInstance().getReference("EmploeeServices").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot ataSnapshot) {
+                                    for (DataSnapshot postdataSnapshot : ataSnapshot.getChildren()) {
+                                    if(postdataSnapshot.child("id").getValue().equals(ID)){
+                                        postdataSnapshot.getRef().removeValue();
+                                    }}
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                            FirebaseDatabase.getInstance().getReference("Emploeeinfo").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot ataSnapshot) {
+                                    for (DataSnapshot postdataSnapshot : ataSnapshot.getChildren()) {
+                                        if (postdataSnapshot.child("id").getValue().equals(ID)) {
+                                            postdataSnapshot.getRef().removeValue();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                            FirebaseDatabase.getInstance().getReference("TimeforEmploee").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot ataSnapshot) {
+                                    for (DataSnapshot postdataSnapshot : ataSnapshot.getChildren()) {
+                                    if(postdataSnapshot.child("id").getValue().equals(ID)){
+                                        postdataSnapshot.getRef().removeValue();
+                                    }}
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                    }}
                     if(success){
                         Toast.makeText(ManageAccount.this, "Remove Success", Toast.LENGTH_LONG).show();
                         openAdmin();
