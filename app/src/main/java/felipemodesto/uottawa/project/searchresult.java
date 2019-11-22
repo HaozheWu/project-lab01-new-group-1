@@ -52,8 +52,9 @@ public class searchresult extends AppCompatActivity {
         }
     });
     }
-    private void back(View view) {
-        finish();
+    public void back(View v) {
+        Intent register = new Intent(getApplicationContext(),welcomepatient.class);
+        startActivity(register);
     }
     protected void onStart() {
         super.onStart();
@@ -117,10 +118,29 @@ public class searchresult extends AppCompatActivity {
                 if(a==null){
                     Toast.makeText(searchresult.this, "You should chose a grade for him", Toast.LENGTH_LONG).show();
                 }else{
-                    String position=FirebaseDatabase.getInstance().getReference("Users").child(id).child("Rate by customer").push().getKey();
+                    final String position=FirebaseDatabase.getInstance().getReference("Users").child(id).child("Rate by customer").push().getKey();
                     FirebaseDatabase.getInstance().getReference("Users").child(id).child("Rate by customer").child(position).setValue(a);
-                    Toast.makeText(searchresult.this, "You Have Rate him Successfully", Toast.LENGTH_LONG).show();
+                    FirebaseDatabase.getInstance().getReference("Users").child(id).child("Rate by customer").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            int i=0;
+                            double point=0.0;
+                            for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                                if(dataSnapshot.getValue()!="any"){
+                                point=point+(Double.valueOf(postdataSnapshot.getValue().toString()));
+                                i++;}}
+                            point=point/i;
+                            dialog(point);
+                            }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    });
                 }
+
+
+
 
             }
         });
@@ -172,6 +192,11 @@ public class searchresult extends AppCompatActivity {
                    }
 
                });}});
+        builder.create().show();
+    }
+    protected void dialog(double a){
+        AlertDialog.Builder builder = new AlertDialog.Builder(searchresult.this);
+        builder.setMessage("Rating successgul, His average is "+ a);
         builder.create().show();
     }
 
