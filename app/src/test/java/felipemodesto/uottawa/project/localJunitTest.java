@@ -10,7 +10,10 @@ import static org.junit.Assert.*;
 
 public class localJunitTest {
 
-
+    /**
+     * Is email valid or not.
+     *
+     */
     @Test
     public void isEmail() {
         String eamilStr = "00000@.com";
