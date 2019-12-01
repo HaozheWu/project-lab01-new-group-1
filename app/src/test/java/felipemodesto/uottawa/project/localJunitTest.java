@@ -215,4 +215,13 @@ public class localJunitTest {
         assertEquals(true,result);
 
     }
+    
+    @Test
+    public void checkInValue(){
+        String test = "3";
+        int res;
+        int result = 3;
+        res = Time.intvalue(test);
+        assertEquals(result,res);
+    }
 }
