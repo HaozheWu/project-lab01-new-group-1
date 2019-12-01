@@ -62,7 +62,8 @@ public class employeecenter extends AppCompatActivity {
         startActivity(register);
     }
     public void back(View v) {
-        finish();
+        Intent register = new Intent(getApplicationContext(),welcomeemployee.class);
+        startActivity(register);
     }
     public void time(View v) {
         Intent register = new Intent(getApplicationContext(),timecontrol.class);

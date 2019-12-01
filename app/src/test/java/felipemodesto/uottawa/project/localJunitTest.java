@@ -92,7 +92,7 @@ public class localJunitTest {
 
     }
     
-
+    //two more tests for dev3
     @Test
     // test employee profile
     public void checkEmployeeProfile(){
@@ -101,9 +101,7 @@ public class localJunitTest {
         String Address ="182 Riverside";
         String Phone = "1234567890";
         String Licenced ="yes";
-
         String Generalinfo = "I have been a dentist 10 years";
-
 
         Employeeprofile employeeprofile = new Employeeprofile(id,Address,Phone,Company,Licenced,Generalinfo);
         assertNotNull(employeeprofile);
@@ -123,10 +121,9 @@ public class localJunitTest {
         String endhour = "18";
         String endminute = "30";
         String id = "5";
-
         String publicid = "12";
         Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
-        assertNotNull\‘(time);
+        assertNotNull(time);
         assertEquals(weekday, time.getWeekday());
         assertEquals(starthour, time.getStarthour());
         assertEquals(startminute, time.getStartminute());
@@ -207,5 +204,4 @@ public class localJunitTest {
             System.out.println("ss is not null" );
         }
     }
-
 }

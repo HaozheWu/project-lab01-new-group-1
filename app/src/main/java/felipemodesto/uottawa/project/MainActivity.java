@@ -41,14 +41,6 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.fieldPassword);
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        Toast.makeText(MainActivity.this, "Log out Successfully", Toast.LENGTH_LONG).show();
-
-    }
-
-
     public void openRegister() {
         Intent intent = new Intent(getApplicationContext(), Second.class);
         startActivity(intent);
@@ -69,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void activity_logIn(View view) {
+   public void activity_logIn(View view) {
         final String username = user.getText().toString();
         final String Passwords =password.getText().toString();
         if (Passwords.equals("") || username.equals("")) {

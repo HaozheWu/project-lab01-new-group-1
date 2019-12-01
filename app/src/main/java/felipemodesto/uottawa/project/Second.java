@@ -56,8 +56,8 @@ public class Second extends AppCompatActivity {
         return email;
     }
 
-    public String getUserPass() {
-        EditText et2 = (EditText) findViewById(R.id.password);
+        public String getUserPass() {
+       EditText et2 = (EditText) findViewById(R.id.password);
         String password = et2.getText().toString();
         return password;
     }
@@ -140,7 +140,6 @@ public class Second extends AppCompatActivity {
             DatabaseUser.child(id).setValue(result);
             Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
             if (status.equals("Employee")) {
-
                 openProfile();}
             else {
                 back();
