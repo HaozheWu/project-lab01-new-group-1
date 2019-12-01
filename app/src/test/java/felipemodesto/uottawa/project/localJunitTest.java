@@ -151,6 +151,7 @@ public class localJunitTest {
         assertEquals(gender, myappoinment.getGender());
     }
     
+    @Test
     public void checkCheckTimePara(){
         String day="";
         String starttime = "9";
@@ -161,6 +162,24 @@ public class localJunitTest {
         boolean real;
         real = false;
         result = timecontrol.checkTimePara(day, starttime, startminute, endtime, endminute);
+        assertEquals(result,real);
+    }
+    
+     @Test
+    //test method: timeavilable()
+    public void timeAvailable(){
+        String weekday = "Friday";
+        String starthour = "9";
+        String startminute = "30";
+        String endhour = "6";
+        String endminute = "30";
+        String id = "5";
+        String publicid = "12";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
+        boolean result;
+        boolean real;
+        real=false;
+        result = time.timeavilable();
         assertEquals(result,real);
     }
 }
