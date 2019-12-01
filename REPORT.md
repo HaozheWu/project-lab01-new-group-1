@@ -126,9 +126,14 @@ list of funtional and nonfuntional requirments, uml class daigram, and all the s
   <img src=https://github.com/professor-forward/project-lab01-new-group-1/blob/deliverable04/image/adminCentre_manageService.png width="200" heigh="200">
 </figure>   
 
-A title page (note this document is "one the web" so there is no explicit notion of pages)
-Short Introduction
-UML class diagram
-Table with the roles in the team and contributions of team members for each deliverable.
-All the screenshots of your app.
-Lessons learned
+## Lession Learned
+
+During this project, we had learned and practicing a lot of aspects of product development. Before we came to this class, most of us are not knowing a lot of functionalties that how to develope a real android application through *Android Studo*. But now we had created a small and simple appliction which is really can be used. 
+* We learned how to using the Github as a group. 
+* We learned to use the Firebase as database to saving user data.
+* We learned to burliding/updating the APK for app.
+* We learned to writing the simple local unit tests to testing our local methods.
+We learned that how to coorpearating with each other as a group. We overcomed the problems that we had make at deliverable #1, such as the conflicts and repition of codes, how to distrubuted the work evenly. We ensured everyone had a role, then we were working more effciently as a goroup. We learned more useful method that help implement new function.
+
+
+
