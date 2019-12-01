@@ -150,4 +150,17 @@ public class localJunitTest {
         assertEquals(email, myappoinment.getEmail());
         assertEquals(gender, myappoinment.getGender());
     }
+    
+    public void checkCheckTimePara(){
+        String day="";
+        String starttime = "9";
+        String endtime = "6";
+        String startminute = "30";
+        String endminute = "30";
+        boolean result;
+        boolean real;
+        real = false;
+        result = timecontrol.checkTimePara(day, starttime, startminute, endtime, endminute);
+        assertEquals(result,real);
+    }
 }
