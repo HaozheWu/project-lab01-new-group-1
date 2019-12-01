@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
@@ -15,10 +19,9 @@
         android:id="@+id/editTextPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextName"
-        android:hint="Edit price" />
 
-
+        android:ems="10"
+        android:hint="Edit price"/>
 
     <EditText
         android:id="@+id/editTextEmploeeName"

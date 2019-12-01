@@ -42,13 +42,13 @@ public class Second extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
         mDatabase = FirebaseDatabase.getInstance();
         DatabaseUser=FirebaseDatabase.getInstance().getReference("Users");
     }
     public void back() {
-        Intent register = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(register);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
     public String getUserEmail() {
         EditText et1 = (EditText) findViewById(R.id.email);
@@ -84,20 +84,16 @@ public class Second extends AppCompatActivity {
     public String getGender() {
         RadioGroup status = (RadioGroup) findViewById(R.id.genderSelect);
         int pos = status.getCheckedRadioButtonId();
-        int b =R.id.check_male;
-        int c =R.id.check_female;
-        if(pos==b){
+        int b = R.id.check_male;
+        int c = R.id.check_female;
+        if (pos == b) {
             return "male";
-        }else if(pos==c){
+        } else if (pos == c) {
             return "female";
         }
         return "Empty";
     }
 
-    public void openAdmin() {
-        Intent intent = new Intent(getApplicationContext(), welcomeadmin.class);
-        startActivity(intent);
-    }
     public  static   boolean   test(String   s)
     { char   c   =   s.charAt(0);
         int   i   =(int)c;
@@ -111,7 +107,7 @@ public class Second extends AppCompatActivity {
 
     public void Onclick_signUp(View v) {
         String email = getUserEmail();
-        String passward = getUserPass();
+        String password = getUserPass();
         String username = getUsername();
         String status = getStatus();
         String gender = getGender();
@@ -123,7 +119,7 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Status Should be selected", Toast.LENGTH_LONG).show();
         } else if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             Toast.makeText(Second.this, "Email is invalid", Toast.LENGTH_LONG).show();
-        } else if (passward.equals("")) {
+        } else if (password.equals("")) {
             Toast.makeText(Second.this, "Password is empty", Toast.LENGTH_LONG).show();
         } else if (username.equals("")) {
             Toast.makeText(Second.this, "Username is empty", Toast.LENGTH_LONG).show();
@@ -133,20 +129,27 @@ public class Second extends AppCompatActivity {
             Toast.makeText(Second.this, "Correct user name should be input", Toast.LENGTH_LONG).show();
         } else {
             String id = DatabaseUser.push().getKey();
-            final User result = new User(id, email, passward, gender, username, status);
+            final User result = new User();
+            result.setEmail(email);
+            result.setId(id);
+            result.setGender(gender);
+            result.setSatus(status);
+            result.setUsername(username);
+            result.setPassword(password);
             idforsignup = id;
             DatabaseUser.child(id).setValue(result);
             Toast.makeText(Second.this, "Registered successfully", Toast.LENGTH_LONG).show();
             if (status.equals("Employee")) {
-                openProfile();
-            } else {
-                finish();
+
+                openProfile();}
+            else {
+                back();
             }
         }
     }
-    public void openProfile () {
-        Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
-        startActivity(intent);
+        public void openProfile () {
+            Intent intent = new Intent(getApplicationContext(), emploeeprofiles.class);
+            startActivity(intent);
     }
 }
 

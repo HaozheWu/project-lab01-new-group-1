@@ -2,7 +2,9 @@ package felipemodesto.uottawa.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class welcomepatient extends AppCompatActivity {
@@ -16,4 +18,19 @@ public class welcomepatient extends AppCompatActivity {
         UserNameTextView=(TextView)findViewById(R.id.name);
         UserNameTextView.setText(MainActivity.currentusername);
     }
+    public void center(View view) {
+        Intent intent = new Intent(getApplicationContext(),patientcenter.class);
+        startActivity(intent);
+    }
+    public void back(View view) {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+    public void check(View view) {
+        Intent intent = new Intent(getApplicationContext(),myappointment.class);
+        startActivity(intent);
+    }
+
+
 }

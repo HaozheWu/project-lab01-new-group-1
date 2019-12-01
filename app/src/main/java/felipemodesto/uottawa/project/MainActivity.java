@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private EditText user;
-    private EditText passward;
+    private EditText password;
     private FirebaseAuth mAuth;
     private passwordEncryption a;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mDatabase = FirebaseDatabase.getInstance();
         user = (EditText) findViewById(R.id.fieldEmail);
-        passward = (EditText) findViewById(R.id.fieldPassword);
+        password = (EditText) findViewById(R.id.fieldPassword);
     }
 
     @Override
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void activity_logIn(View view) {
         final String username = user.getText().toString();
-        final String Passwards =passward.getText().toString();
-        if (Passwards.equals("") || username.equals("")) {
+        final String Passwords =password.getText().toString();
+        if (Passwords.equals("") || username.equals("")) {
             Toast.makeText(MainActivity.this, "Email or Password is empty", Toast.LENGTH_LONG).show();
         } else {
             if (!RegTool.isEmail(username)) {
@@ -80,44 +80,44 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             a=new passwordEncryption();
-            final String hashpass=a.passwordEncryption(Passwards);
+            final String hashpass=a.passwordEncryption(Passwords);
             mReference = FirebaseDatabase.getInstance().getReference("Users");
             mReference.addValueEventListener(new ValueEventListener() {
-                                                 String statuas;
-                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                     boolean success=false;
-                                                     for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
-                                                         String UserEmail = (String)postdataSnapshot.child("email").getValue();
-                                                         String UserPassward =(String)postdataSnapshot.child("passward").getValue();
-                                                         if (UserEmail.equals(username) && (UserPassward.equals(hashpass))) {
-                                                             success=true;
-                                                             id=(String)postdataSnapshot.child("id").getValue();
-                                                             statuas=(String) postdataSnapshot.child("status").getValue();
-                                                             currentusername=(String)postdataSnapshot.child("username").getValue();
-                                                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                                                             if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
-                                                                 openAdmin();
-                                                             } else if (statuas.equals("Employee")) {
-                                                                 openEmployee();//Should create an activity Welcome Emploee here
-                                                             } else {
-                                                                 openpatient();//Should create an activity Welcome Patient here
-                                                             }
-                                                         }
-                                                     }
-                                                     if(success==false){
-                                                         Toast.makeText(MainActivity.this, "Incorrect Passward:(", Toast.LENGTH_LONG).show();
-                                                     }
+                String statuas;
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    boolean success=false;
+                    for (DataSnapshot postdataSnapshot : dataSnapshot.getChildren()) {
+                        String UserEmail = (String)postdataSnapshot.child("email").getValue();
+                        String UserPassword =(String)postdataSnapshot.child("password").getValue();
+                        if (UserEmail.equals(username) && (UserPassword.equals(hashpass))) {
+                            success=true;
+                            id=(String)postdataSnapshot.child("id").getValue();
+                            statuas=(String) postdataSnapshot.child("status").getValue();
+                            currentusername=(String)postdataSnapshot.child("username").getValue();
+                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                            if (statuas.equals("Admin")) {//using email:admin@admin.ca password is given by prof
+                                openAdmin();
+                            } else if (statuas.equals("Employee")) {
+                                openEmployee();//Should create an activity Welcome Emploee here
+                            } else {
+                                openpatient();//Should create an activity Welcome Patient here
+                            }
+                        }
+                    }
+                    if(success==false){
+                            Toast.makeText(MainActivity.this, "Incorrect Password:(", Toast.LENGTH_LONG).show();
+                    }
 
 
-                                                 }
-                                                 @Override
-                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                                                     Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
-                                                 }
-                                             }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "Authentication failed :(", Toast.LENGTH_LONG).show();
+                 }
+            }
             );}}
 
-    public void activity_signUp(View v) {
+    public void activity_signUp(View v){
         openRegister();
     }
 }

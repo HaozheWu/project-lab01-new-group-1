@@ -108,6 +108,10 @@ public class Serviceforemployee extends AppCompatActivity {
                     a = postSnapshot.getValue(Services.class);
                     a.set_emploeename(currentusername);
                     a.set_emploeerole(emploeerole);
+                    a.setId(MainActivity.id);
+                    String newidd= FirebaseDatabase.getInstance().getReference("EmploeeServices").push().getKey();
+                    a.set_publicid(newidd);
+                    FirebaseDatabase.getInstance().getReference("EmploeeServices").child(newidd).setValue(a);
                     String newid=FirebaseDatabase.getInstance().getReference("Users").child(MainActivity.id).child("Services").push().getKey();
                     a.setId(newid);
                     FirebaseDatabase.getInstance().getReference("Users").child(MainActivity.id).child("Services").child(newid).setValue(a);
@@ -153,8 +157,12 @@ public class Serviceforemployee extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void back(View v) {
+
+    public void back(View view){
         finish();
     }
 
+
+
 }
+

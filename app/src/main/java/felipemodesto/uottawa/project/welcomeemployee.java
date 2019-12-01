@@ -26,6 +26,7 @@ public class welcomeemployee extends AppCompatActivity {
     }
     public void back(View v) {
         Intent register = new Intent(getApplicationContext(), MainActivity.class);
+        register.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(register);
     }
 

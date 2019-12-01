@@ -4,6 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="231dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -31,7 +35,7 @@
     <EditText
         android:id="@+id/emploeerole"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="125dp"
         android:ems="10"
         android:hint="Enter Employee role" />
 
@@ -44,15 +48,23 @@
             android:id="@+id/addto"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="Add to my Service" />
+            android:background="@drawable/blue_button"
+            android:text="Add to my Service"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonReturn2"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="Back to ServiceList" />
+            android:background="@drawable/blue_button"
+            android:text="Back to ServiceList"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </LinearLayout>

@@ -10,7 +10,10 @@ import static org.junit.Assert.*;
 
 public class localJunitTest {
 
-
+    /**
+     * Is email valid or not.
+     *
+     */
     @Test
     public void isEmail() {
         String eamilStr = "00000@.com";
@@ -89,7 +92,7 @@ public class localJunitTest {
 
     }
     
-    // two more unit tests for Dev3
+
     @Test
     // test employee profile
     public void checkEmployeeProfile(){
@@ -98,7 +101,9 @@ public class localJunitTest {
         String Address ="182 Riverside";
         String Phone = "1234567890";
         String Licenced ="yes";
-        String Generalinfo = "I have been a dentist for 10 years";
+
+        String Generalinfo = "I have been a dentist 10 years";
+
 
         Employeeprofile employeeprofile = new Employeeprofile(id,Address,Phone,Company,Licenced,Generalinfo);
         assertNotNull(employeeprofile);
@@ -118,8 +123,10 @@ public class localJunitTest {
         String endhour = "18";
         String endminute = "30";
         String id = "5";
-        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute);
-        assertNotNull(time);
+
+        String publicid = "12";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
+        assertNotNull\‘(time);
         assertEquals(weekday, time.getWeekday());
         assertEquals(starthour, time.getStarthour());
         assertEquals(startminute, time.getStartminute());
@@ -127,4 +134,78 @@ public class localJunitTest {
         assertEquals(endminute, time.getEndminute());
         assertNotEquals(id, time.getId());
     }
+
+    // ten more tests for dev4
+    @Test
+    //check appoinment
+    public void checkAppoinment(){
+        String emploee = "Leo";
+        String waitingtime = "10";
+        String customerid = "12";
+        String emploeeid = "21";
+        String appointmentid = "3";
+        String email = "test@test.ca";
+        String gender = "female";
+        appointment myappoinment = new appointment(emploee, waitingtime, customerid, emploeeid, appointmentid, email, gender);
+        assertNotNull(myappoinment);
+        assertEquals(emploee, myappoinment.getEmploee());
+        assertEquals(waitingtime, myappoinment.getWaitingtime());
+        assertEquals(customerid, myappoinment.getCustomerid());
+        assertEquals(emploeeid, myappoinment.getEmploeeid());
+        assertEquals(appointmentid, myappoinment.getAppointmentid());
+        assertEquals(email, myappoinment.getEmail());
+        assertEquals(gender, myappoinment.getGender());
+    }
+    
+    @Test
+    public void checkCheckTimePara(){
+        String day="";
+        String starttime = "9";
+        String endtime = "6";
+        String startminute = "30";
+        String endminute = "30";
+        boolean result;
+        boolean real;
+        real = false;
+        result = timecontrol.checkTimePara(day, starttime, startminute, endtime, endminute);
+        assertEquals(result,real);
+    }
+    
+     @Test
+    //test method: timeavilable()
+    public void timeAvailable(){
+        String weekday = "Friday";
+        String starthour = "9";
+        String startminute = "30";
+        String endhour = "6";
+        String endminute = "30";
+        String id = "5";
+        String publicid = "12";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
+        boolean result;
+        boolean real;
+        real=false;
+        result = time.timeavilable();
+        assertEquals(result,real);
+    }
+    
+    @Test
+    public void isMatch() {
+        RegTool regTool = new RegTool();
+        if (regTool.isMatch( "1", "100" )) {
+            System.out.println("isMatch() works" );
+        } else {
+            System.out.println("isMatch() doesn't work" );
+        }
+    }
+
+    @Test
+    public void isNullString() {
+        if (RegTool.isNullString( "ss" )) {
+            System.out.println("ss is null" );
+        } else {
+            System.out.println("ss is not null" );
+        }
+    }
+
 }

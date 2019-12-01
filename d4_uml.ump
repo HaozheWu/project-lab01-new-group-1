@@ -1,0 +1,748 @@
+class AppointmentList{
+  List<appointment> appointments;
+  
+    1 -- 1 myappointment;
+AppointmentList(@NonNull Activity context, List<appointment>  appointments) {}
+  
+  View getView(int position, View convertView, ViewGroup parent) {}
+
+}
+
+class Empolyeelist{
+  List<User> user;
+  
+    1 -- 1 employeecenter;
+Employeelist(Activity context, List<User> User) {}
+  
+  View getView(int position, View convertView, ViewGroup parent) {}
+}
+
+class patientcenter{
+
+    1 -- 1 welcomeadmin;
+  String day,method;
+  TextView a,b,c,d,e;
+  static List<String> emploees;
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void showDialog(View view) {}
+  
+  void showtDialog2(View view) {}
+  
+  void confirm(View view){}
+  
+  void searchonstarttime() {}
+  
+  void searchbyservice() {}
+  
+  void searchbyadd(){}
+  
+  void continuego(){}
+  
+  void openpatient() {}
+}
+
+class Employeeprofile{
+  String Id;
+  String Company;
+  String Address;
+  String Phone;
+  String Licenced;
+  String Generalinfo;
+  
+    1 -- 1 welcomeemployee;
+  
+  void setId(String id) {}
+  
+  
+  
+String getAddress() {}
+  
+  String getCompany() {}
+  
+  String getGeneralinfo() {}
+  
+  String getId() {}
+  
+  String getLicenced() {}
+  
+  String getPhone() {}
+  
+  Employeeprofile(){}
+}
+
+class MainActivity{
+  User currentUser;
+  String currentusername;
+  String id;
+
+    1 -- * User;
+  1 -- 1 Second;
+  1 -- 1 Welcomepatients;
+  1 -- 1 welcomeemployee;
+  void onCreate(Bundle saveInstanceState) {}
+  
+  void openRegister() {}
+  
+  void openAdmin() {}
+  
+  void openEmployee() {}
+  
+  void openpatient() {}
+  
+  void activity_logIn(View view) {}
+  
+  void activity_signUp(View v) {}
+}
+
+class ManageAccount{
+    1 -- 1 Second;
+void activity_logIn(View view) {}
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void dialog(){}
+  
+  void openAdmin() {}
+  
+  void openadmin(View view) {}
+}
+
+
+class RegTool{
+    1 -- 1 Second;
+  * -- * Second;
+boolean isMatch(String regex, String string) {}
+  
+  boolean isNullString(@Nullable String str) {}
+  
+  boolean isEmail(String email) {}
+}
+
+class Second{
+  User result;
+  String idforsignup;
+  
+    1 -- * User;
+  1 -- 1 passwordEncryption;
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void back() {}
+  
+  String getUserEmail() {}
+  
+  String getUserPass() {}
+  
+  String getUsername() {}
+  
+  String getStatus() {}
+  
+  String getGender() {}
+  
+  void set_emploeerole(String _emploeerole) {}
+  
+  
+  
+  void openAdmin() {}
+  
+  boolean test(String s){}
+  
+  void Onclick_signUp(View v) {}
+  
+  void openProfile () {}
+}
+
+class Services{
+  String _id;
+  String _Servicesname;
+  String  _emploeename;
+  String  _emploeerole;
+  String _price;
+  String _publicid;
+
+    * -- 1 Welcomepatients;
+Services() {}
+  String get_emploeename() {}
+  
+  void set_emploeerole(String _emploeerole) {}
+  
+  void set_emploeename(String _emploeename) {}
+  
+  String get_emploeerole() {}
+  
+  void setId(String id) {}
+  
+  void set_publicid(String _publicid) {}
+  
+  String get_publicid() {}
+  
+  String getId() {}
+  
+  void setServicesName(String Servicenames) {}
+  
+  String getServicesName() {}
+  
+  void setPrice( String price) {}
+  
+  String  getPrice() {}
+}
+
+class ServiceList{
+  List<Services> Services;
+  
+    1 -- * Services;
+  1 -- 1 service;
+ServiceList(Activity context, List<Services> products) {}
+  
+  View getView(int position, View convertView, ViewGroup parent) {}
+}
+
+class Serviceforemployee{
+      ListView listViewService;
+      List<Services> Services;
+    DatabaseReference databaseServices;
+      1 -- 1 welcomeemployee;
+static Services a;
+
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void showUpdateDeleteDialog(final String servicesId, String productName) {}
+  
+  void changetomyprofile(final String ids, final String emploeerole) {}
+  
+  void onStart() {}
+  
+  void returntoList() {}
+}
+
+class Time{
+  String weekday;
+  String starthour;
+  String startminute;
+  String endminute;
+  String endhour;
+  
+  
+  * -- 1 welcomeadmin;
+Time(String id,String weekday,String starthour,String startminute,String endhour,String endminute){}
+  
+  Time() {}
+  
+  String getId() {}
+  
+  String getPublicid() {}
+  
+  void setPublicid(String publicid) {}
+  
+  String getEndhour() {}
+  
+  String getEndminute() {}
+  
+  String getStarthour() {}
+  
+  String getStartminute() {}
+  
+  String getWeekday() {}
+  
+  void setEndhour(String endhour) {}
+  
+  void setEndminute(String endminute) {}
+  
+  void setId(String id) {}
+  
+  void setStarthour(String starthour) {}
+  
+  void setStartminute(String startminute) {}
+  
+  void setWeekday(String weekday) {}
+  
+  boolean timeavilable(){}
+}
+
+class TimeList{
+      List<Time> times;
+    1 -- 1 timecontrol;
+TimeList(Activity context, List<Time> time) {}
+
+  View getView(int position, View convertView, ViewGroup parent) {}
+}
+
+class User{
+     String Id;
+    String Email;
+    String Passward;
+    String Username;
+    String Status ;
+    String Gender;
+    passwordEncryption a;
+
+    1 -- 1 myservices;
+  1 -- * appointment;
+  1 -- * searchresult;
+User(String Id,String Email,String Passward,String Gender, String Username, String status) {}
+  
+  User(){}
+
+  void setId(String Id){}
+  
+  String getPassward(){}
+  
+  String getId(){}
+  
+  String getUsername() {}
+  
+  String getEmail(){}
+  
+  void setEmail(String email){}
+  
+  String passwordEncryption(String password) {}
+  
+  String getPassword(){}
+  
+  void setUsername(String username){}
+  
+  String getStatus() {}
+  
+  void setSatus(String status){}
+  
+  void setGender(String Gender){}
+  
+  String getGender(){}
+}
+
+class Welcomepatients{
+  TextView UserNameTextView;
+
+    1 -- 1 welcomepatient;
+void onCreate(Bundle savedInstanceState) {}
+}
+
+class employeeprofiles{
+    DatabaseReference DatabaseUser;
+
+    1 -- 1 welcomeemployee;
+void onCreate(Bundle savedInstanceState) {}
+  
+  void click(View v) {}
+  
+  void checking(){}
+  
+  void dialog(){}
+  
+  boolean isNumeric(String str){}
+  
+  String getUserAddress() {}
+  
+  String getUserphone() {}
+  
+  String getcompany() {}
+  
+  String getStatus() {}
+  
+  String getgeneralinfo() {}  
+  
+  void back() {}
+}
+
+class employeecenter{
+  String Address;
+  String Phone;
+  String Company;
+  String Licenced;
+
+      1 -- * employeeprofiles;
+void onCreate(Bundle savedInstanceState) {}
+  
+  void openmanagement(View view) {}
+  
+  void gotomarket() {}
+  
+  void Onclick_signUp(View v) {}
+  
+  void back(View v) {}
+  
+  void time(View v) {}
+  
+}
+
+class myservices{
+      ListView listViewService;
+    List<Services> Services;
+    DatabaseReference databaseServices;
+    Services aa;
+
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void onStart() {}
+  
+  void dialog(final String a){}
+  
+  void delete(final String a) {}
+  
+  void Onclick_signUp(View v) {}
+}
+
+class passwordEncryption{
+String passwordEncryption(String password) {}
+}
+
+class service{
+    EditText editTextName;
+    EditText editTextPrice;
+    EditText editTextEmploeeName;
+    EditText Emploeerole;
+    ListView listViewService;
+    DatabaseReference databaseServices;
+    List<Services> Services;
+
+    * -- 1 welcomeadmin;
+void onCreate(Bundle savedInstanceState) {}
+  
+  void onStart() {}
+  
+  void onStart() {}
+  
+  void showUpdateDeleteDialog(final String servicesId, String productName) {}
+  
+  void returntoList(){}
+  
+  void updateServices(String id, String name, String price, String Emploeename, String Emploeerole) {}
+  
+  void deleteServices(String id) {}
+  
+  void addServices() {}
+}
+
+class timecontrol{
+  TextView a, b, c, d, e;
+  String day, starttime, startminute, endtime, endminute, ids;
+  ListView listViewService;
+  List<Time> times;
+  DatabaseReference databaseServices;
+  DatabaseReference mReference;
+  
+    1 -- 1 welcomeadmin;
+  * -- * welcomeadmin;
+void onCreate(Bundle savedInstanceState) {}
+  
+  Dialog onCreateDialog(Bundle savedInstanceState) {}
+  
+  void onTimeSet(TimePicker view, int hourOfDay, int minute) {}
+  
+  void showTimePickerDialog(View v) {}
+  
+  void showTimePickerDialog2(View v) {}
+  
+  void showSingleAlertDialog(View view) {}
+  
+  void confirm(View v) {}
+  
+  void back(View v) {}
+  
+  void onStart() {}
+  
+  void showUpdateDeleteDialog(final String servicesId) {}
+  
+  void update(String ids) {}
+  
+  void update(View v) {}
+  
+  void delete(View v) {}
+  
+  void delete(final String ids) {}
+}
+
+class welcomeadmin{
+  TextView UserNameTextView;
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void openmanagement(View view) {}
+  
+  void openManagement() {}
+  
+  void openService(View view) {}
+  
+  void logout() {}
+  
+  void logout(View view) {}
+  
+  void openService() {}
+}
+
+class welcomeemployee{
+  TextView UserNameTextView;
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void Onclick_signUp(View v) {}
+  
+  void back(View v) {}
+}
+
+class welcomepatient{
+  TextView UserNameTextView;
+  
+  void onCreate(Bundle savedInstanceState) {}
+}
+
+class myappointment{
+  ListView listViews;
+  List<appointment> appointmentli;
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void onStart() {}
+  
+  void dialog(final appointment a){}
+  
+  void delete(final appointment a){}
+  
+  
+}
+
+class searchresult{
+  ListView listViewuser;
+  User thisuser;
+  
+  void onCreate(Bundle savedInstanceState) {}
+  
+  void back(View v) {}
+  
+  void onStart() {}
+  
+  void dialog(final String id){}
+  
+  void Rate(String id){}
+  
+  void showDialogofrate(final String id) {}
+  
+  void dialogappointment(final String id){}
+  
+  void dialog(double a){}
+}
+
+class appointment {
+  String emploee;
+  String waitingtime;
+  String customerid;
+  String emploeeid;
+  String appointmentid;
+  String email;
+  String gender;
+  
+    * -- 1 myappointment;
+String getGender() {}
+  
+  void setGender(String gender) {}
+  
+  String getEmail() {}
+  
+  void setEmail(String email) {}
+  
+  String getAppointmentid() {}
+  
+  void setAppointmentid(String appointmentid) {}
+  
+  String getEmploee() {}
+  
+  String getCustomerid() {}
+  
+  String getEmploeeid() {}
+  
+  String getWaitingtime() {}
+  
+  void setCustomerid(String customerid) {}
+  
+  void setEmploee(String emploee) {}
+  
+  void setEmploeeid(String emploeeid) {}
+  
+  void setWaitingtime(String waitingtime) {}
+}
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class MainActivity
+{
+  position.association MainActivity__Welcomepatients 190,0 0,10;
+}
+
+class Second
+{
+  position.association Second__User 150,50 0,10;
+  position.association Second__passwordEncryption 150,15 0,10;
+  }
+
+class Services
+{
+  position.association Services__Welcomepatients 179,100 0,10;
+}
+
+class Serviceforemployee
+{
+  position.association Serviceforemployee__welcomeemployee 253,104 0,10;
+}
+
+class Time
+{
+  position.association Time__welcomeadmin 153,0 0,10;
+}
+
+class TimeList
+{
+  position.association TimeList__timecontrol 110,0 0,10;
+}
+
+class employeeprofiles
+{
+  position.association employeeprofiles__welcomeemployee 136,82 0,10;
+}
+
+class AppointmentList
+{
+  position 50 30 109 45;
+  position.association AppointmentList__myappointment 150,51 38,0;
+}
+
+class Empolyeelist
+{
+  position 50 130 109 45;
+  position.association Empolyeelist__employeecenter 110,32 0,44;
+}
+
+class patientcenter
+{
+  position 50 229 109 39;
+  position.association patientcenter__welcomeadmin 110,19 0,55;
+}
+
+class Employeeprofile
+{
+  position 50 330 109 45;
+}
+
+class MainActivity
+{
+  position 50 430 109 45;
+}
+
+class ManageAccount
+{
+  position 250 30 109 45;
+}
+
+class RegTool
+{
+  position 250 130 109 45;
+  position.association RegTool__Second 61,23 62,0;
+}
+
+class Second
+{
+  position 250 230 109 45;
+}
+
+class Services
+{
+  position 250 330 109 45;
+}
+
+class ServiceList
+{
+  position 250 430 109 45;
+  position.association ServiceList__service 110,10 0,10;
+}
+
+class Serviceforemployee
+{
+  position 450 30 109 45;
+}
+
+class Time
+{
+  position 450 130 109 45;
+}
+
+class TimeList
+{
+  position 450 230 109 45;
+}
+
+class User
+{
+  position 450 330 109 45;
+  position.association User__appointment 178,48 0,106;
+  position.association User__searchresult 178,15 21,74;
+}
+
+class Welcomepatients
+{
+  position 450 430 109 45;
+}
+
+class employeeprofiles
+{
+  position 650 30 109 45;
+}
+
+class employeecenter
+{
+  position 650 130 109 45;
+  position.association employeecenter__employeeprofiles 30,0 20,82;
+}
+
+class myservices
+{
+  position 650 230 109 45;
+}
+
+class passwordEncryption
+{
+  position 650 330 109 45;
+}
+
+class service
+{
+  position 650 430 109 45;
+}
+
+class timecontrol
+{
+  position 882 11 281 109;
+  position.association timecontrol__welcomeadmin 139,109 173,0;
+}
+
+class welcomeadmin
+{
+  position 850 130 109 45;
+}
+
+class welcomeemployee
+{
+  position 850 230 109 45;
+}
+
+class welcomepatient
+{
+  position 850 330 109 45;
+}
+
+class myappointment
+{
+  position 850 430 109 45;
+}
+
+class searchresult
+{
+  position 1137 31 109 109;
+}
+
+class appointment
+{
+  position 1138 141 109 39;
+  position.association appointment__myappointment 0,177 150,12;
+}

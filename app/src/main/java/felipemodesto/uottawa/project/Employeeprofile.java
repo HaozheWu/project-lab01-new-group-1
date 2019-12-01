@@ -9,6 +9,7 @@ public class Employeeprofile {
     String Generalinfo;
 
 
+
     public Employeeprofile(String id,String Address,String Phone,String Company,String Licenced,String Generalinfo){
         this.Id=id;
         this.Company=Company;
@@ -16,6 +17,11 @@ public class Employeeprofile {
         this.Phone=Phone;
         this.Licenced=Licenced;
         this.Generalinfo=Generalinfo;
+
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getAddress() {

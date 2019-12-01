@@ -27,7 +27,7 @@ public class emploeeprofiles extends AppCompatActivity {
         setContentView(R.layout.activity_emploeeprofiles);
     }
 
-    DatabaseReference DatabaseUser;
+    DatabaseReference DatabaseUser, DatabaseUser2;
 
 
     public void click(View v) {
@@ -57,6 +57,10 @@ public class emploeeprofiles extends AppCompatActivity {
             String id = DatabaseUser.push().getKey();
             Employeeprofile a = new Employeeprofile(id,Address,Phone,Company,licenced,Generalinfos);
             DatabaseUser.child(id).setValue(a);
+            DatabaseUser2=FirebaseDatabase.getInstance().getReference("Emploeeinfo");
+            String ids = DatabaseUser2.push().getKey();
+            a.setId(idforsignup);
+            DatabaseUser2.child(ids).setValue(a);
             Toast.makeText(emploeeprofiles.this, "You have successfully fill the Information, Please sign in", Toast.LENGTH_LONG).show();
             back();
         }
@@ -121,10 +125,8 @@ public class emploeeprofiles extends AppCompatActivity {
     }
     public void back() {
         Intent register = new Intent(getApplicationContext(), MainActivity.class);
+        register.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(register);
     }
-
-
-
 
 }

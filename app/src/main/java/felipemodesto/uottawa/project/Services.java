@@ -6,8 +6,16 @@ class Services {
     private String  _emploeename;
     private String  _emploeerole;
     private String _price;
-
+    private String _publicid;
     public Services() {
+    }
+    public Services(String id, String Servicesnames,String  price,String emploeename,String emploeerole,String _publici) {
+        _id = id;
+        _Servicesname = Servicesnames;
+        _price = price;
+        _emploeename=emploeename;
+        _emploeerole=emploeerole;
+        _publicid=_publici;
     }
     public Services(String id, String Servicesnames,String  price,String emploeename,String emploeerole) {
         _id = id;
@@ -56,6 +64,14 @@ class Services {
     }
     public String  getPrice() {
         return _price;
+    }
+
+    public void set_publicid(String _publicid) {
+        this._publicid = _publicid;
+    }
+
+    public String get_publicid() {
+        return _publicid;
     }
 }
 
