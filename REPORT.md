@@ -133,6 +133,7 @@ During this project, we had learned and practicing a lot of aspects of product d
 * We learned to use the Firebase as database to saving user data.
 * We learned to burliding/updating the APK for app.
 * We learned to writing the simple local unit tests to testing our local methods.
+
 We learned that how to coorpearating with each other as a group. We overcomed the problems that we had make at deliverable #1, such as the conflicts and repition of codes, how to distrubuted the work evenly. We ensured everyone had a role, then we were working more effciently as a goroup. We learned more useful method that help implement new function.
 
 
