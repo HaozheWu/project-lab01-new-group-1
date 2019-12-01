@@ -4,6 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="231dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -31,7 +35,7 @@
     <EditText
         android:id="@+id/emploeerole"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="125dp"
         android:ems="10"
         android:hint="Enter Employee role" />
 

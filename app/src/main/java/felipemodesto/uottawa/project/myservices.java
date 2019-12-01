@@ -71,9 +71,9 @@ public class myservices extends AppCompatActivity {
     }
     protected void dialog(final String a){
         AlertDialog.Builder builder = new AlertDialog.Builder(myservices.this);
-        builder.setMessage("The Choosen Service will be delete from your list and back to the market, Are you sure you want to do that");
+        builder.setMessage("The Selected Service will be delete from your list and back to the market, Are you sure you want to do that");
         builder.setTitle("Warning");
-        builder.setPositiveButton("Yes,Comfirm", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yes,Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 delete(a);
             }});
