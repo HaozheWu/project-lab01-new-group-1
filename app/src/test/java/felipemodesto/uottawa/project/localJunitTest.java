@@ -198,10 +198,21 @@ public class localJunitTest {
 
     @Test
     public void isNullString() {
-        if (RegTool.isNullString( "ss" )) {
-            System.out.println("ss is null" );
+        if (RegTool.isNullString("ss")) {
+            System.out.println("ss is null");
         } else {
-            System.out.println("ss is not null" );
+            System.out.println("ss is not null");
         }
+
+    }
+    @Test
+    public void testNameStartsWithCharacter(){
+
+        String ex = "Jack";
+
+        boolean result = Second.test(ex);
+
+        assertEquals(true,result);
+
     }
 }
