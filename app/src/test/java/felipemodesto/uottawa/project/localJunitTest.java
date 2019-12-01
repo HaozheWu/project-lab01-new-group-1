@@ -185,4 +185,23 @@ public class localJunitTest {
         result = time.timeavilable();
         assertEquals(result,real);
     }
+    
+    @Test
+    public void isMatch() {
+        RegTool regTool = new RegTool();
+        if (regTool.isMatch( "1", "100" )) {
+            System.out.println("isMatch() works" );
+        } else {
+            System.out.println("isMatch() doesn't work" );
+        }
+    }
+
+    @Test
+    public void isNullString() {
+        if (RegTool.isNullString( "ss" )) {
+            System.out.println("ss is null" );
+        } else {
+            System.out.println("ss is not null" );
+        }
+    }
 }
