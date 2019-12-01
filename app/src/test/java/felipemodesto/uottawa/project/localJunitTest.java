@@ -224,4 +224,14 @@ public class localJunitTest {
         res = Time.intvalue(test);
         assertEquals(result,res);
     }
+    
+    @Test
+    public void checkidisnull(){
+        String test = "12323";
+        boolean res;
+        boolean result;
+        result = false;
+        res = timecontrol.checkidnull(test);
+        assertEquals(res,result);
+   }
 }
