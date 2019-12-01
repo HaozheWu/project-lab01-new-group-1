@@ -49,6 +49,9 @@ list of funtional and nonfuntional requirments, uml class daigram, and all the s
 
 
 ## UML class Diagram
+<figure>
+  <img src =https://raw.githubusercontent.com/professor-forward/project-lab01-new-group-1/deliverable04/image/deliverable4UML.png?token=AKXFRNT6EWX4Q6NJGYVMMLS55RNXA>  
+</figure>
 
 
 ## Screenshot of the application
