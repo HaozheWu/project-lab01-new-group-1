@@ -10,7 +10,10 @@ import static org.junit.Assert.*;
 
 public class localJunitTest {
 
-
+    /**
+     * Is email valid or not.
+     *
+     */
     @Test
     public void isEmail() {
         String eamilStr = "00000@.com";
@@ -87,5 +90,99 @@ public class localJunitTest {
 
 
 
+    }
+    
+    //two more tests for dev3
+    @Test
+    // test employee profile
+    public void checkEmployeeProfile(){
+        String id = "203";
+        String Company = "Spark";
+        String Address ="182 Riverside";
+        String Phone = "1234567890";
+        String Licenced ="yes";
+        String Generalinfo = "I have been a dentist 10 years";
+
+        Employeeprofile employeeprofile = new Employeeprofile(id,Address,Phone,Company,Licenced,Generalinfo);
+        assertNotNull(employeeprofile);
+        assertEquals(Company, employeeprofile.getCompany());
+        assertEquals(Address, employeeprofile.getAddress());
+        assertEquals(Phone, employeeprofile.getPhone());
+        assertEquals(Licenced, employeeprofile.getLicenced());
+        assertEquals(Generalinfo, employeeprofile.getGeneralinfo());
+    }
+
+    @Test
+    //test time
+    public void checkTime(){
+        String weekday = "Friday";
+        String starthour = "9";
+        String startminute = "30";
+        String endhour = "18";
+        String endminute = "30";
+        String id = "5";
+        String publicid = "12";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
+        assertNotNull(time);
+        assertEquals(weekday, time.getWeekday());
+        assertEquals(starthour, time.getStarthour());
+        assertEquals(startminute, time.getStartminute());
+        assertEquals(endhour, time.getEndhour());
+        assertEquals(endminute, time.getEndminute());
+        assertNotEquals(id, time.getId());
+    }
+
+    // ten more tests for dev4
+    @Test
+    //check appoinment
+    public void checkAppoinment(){
+        String emploee = "Leo";
+        String waitingtime = "10";
+        String customerid = "12";
+        String emploeeid = "21";
+        String appointmentid = "3";
+        String email = "test@test.ca";
+        String gender = "female";
+        appointment myappoinment = new appointment(emploee, waitingtime, customerid, emploeeid, appointmentid, email, gender);
+        assertNotNull(myappoinment);
+        assertEquals(emploee, myappoinment.getEmploee());
+        assertEquals(waitingtime, myappoinment.getWaitingtime());
+        assertEquals(customerid, myappoinment.getCustomerid());
+        assertEquals(emploeeid, myappoinment.getEmploeeid());
+        assertEquals(appointmentid, myappoinment.getAppointmentid());
+        assertEquals(email, myappoinment.getEmail());
+        assertEquals(gender, myappoinment.getGender());
+    }
+    
+    @Test
+    public void checkCheckTimePara(){
+        String day="";
+        String starttime = "9";
+        String endtime = "6";
+        String startminute = "30";
+        String endminute = "30";
+        boolean result;
+        boolean real;
+        real = false;
+        result = timecontrol.checkTimePara(day, starttime, startminute, endtime, endminute);
+        assertEquals(result,real);
+    }
+    
+     @Test
+    //test method: timeavilable()
+    public void timeAvailable(){
+        String weekday = "Friday";
+        String starthour = "9";
+        String startminute = "30";
+        String endhour = "6";
+        String endminute = "30";
+        String id = "5";
+        String publicid = "12";
+        Time time  = new Time(id,weekday,starthour,startminute,endhour,endminute,publicid);
+        boolean result;
+        boolean real;
+        real=false;
+        result = time.timeavilable();
+        assertEquals(result,real);
     }
 }

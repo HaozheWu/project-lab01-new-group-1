@@ -138,7 +138,7 @@ public class timecontrol extends AppCompatActivity {
     }
 
     public void showSingleAlertDialog(View view) {
-        final String[] items = {"Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Satuarday", "Sunday"};
+        final String[] items = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
         alertBuilder.setTitle("Choose The Day of week you are working");
         alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
@@ -163,7 +163,7 @@ public class timecontrol extends AppCompatActivity {
 
     public void confirm(View v) {
         if (day == null || starttime == null || startminute == null || endtime == null || endminute == null) {
-            Toast.makeText(timecontrol.this, "Please fullfill the information", Toast.LENGTH_SHORT).show();
+            Toast.makeText(timecontrol.this, "Please full-fill the information", Toast.LENGTH_SHORT).show();
             return;
         }
         Time time = new Time();
@@ -249,7 +249,7 @@ public class timecontrol extends AppCompatActivity {
         if (ids == null) {
             Toast.makeText(timecontrol.this, "Please choose existing time first", Toast.LENGTH_SHORT).show();
         } else {
-            if (day == null || starttime == null || startminute == null || endtime == null || endminute == null) {
+            if (checkTimePara(day, starttime, startminute, endtime, endminute)) {
                 Toast.makeText(timecontrol.this, "Please full-fill the information", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -285,8 +285,14 @@ public class timecontrol extends AppCompatActivity {
             mReference2.child(publicid).removeValue();
         }
     }
+    
+    public static boolean checkTimePara(String day, String starttime, String endtime, String startminute, String endminute){
+        if(day == null || starttime == null || startminute == null || endtime == null || endminute == null){
+            return true;
+        }
+        return false;
 
-
+    }
 
 
 }

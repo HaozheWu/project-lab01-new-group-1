@@ -101,7 +101,7 @@ public class searchresult extends AppCompatActivity {
         showDialogofrate(id);
     }
     public void showDialogofrate(final String id) {
-        final String[] items = {"Bad [*]", "Not Accpetable [**]", "Accpetable [***]", "Good [****]", "Perfect [*****]"};
+        final String[] items = {"Bad [*]", "Not Acceptable [**]", "Acceptable [***]", "Good [****]", "Perfect [*****]"};
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
         alertBuilder.setTitle("Choose The Day of week you are working");
         alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
@@ -196,7 +196,7 @@ public class searchresult extends AppCompatActivity {
     }
     protected void dialog(double a){
         AlertDialog.Builder builder = new AlertDialog.Builder(searchresult.this);
-        builder.setMessage("Rating successgul, His average is "+ a);
+        builder.setMessage("Rating successful, His average is "+ a);
         builder.create().show();
     }
 

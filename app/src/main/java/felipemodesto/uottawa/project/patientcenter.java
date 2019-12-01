@@ -41,7 +41,7 @@ public class patientcenter extends AppCompatActivity {
     }
 
     public void showDialog(View view) {
-        final String[] items = {"Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Satuarday", "Sunday"};
+        final String[] items = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
         alertBuilder.setTitle("Choose The Day of week you are working");
         alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
@@ -64,7 +64,7 @@ public class patientcenter extends AppCompatActivity {
     public void showtDialog2(View view) {
         final String[] items = {"Search by Address", "Search by Service", "Search by Time"};
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        alertBuilder.setTitle("Choose The Serach method you want to use");
+        alertBuilder.setTitle("Choose The Search method you want to use");
         alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
