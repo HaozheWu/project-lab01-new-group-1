@@ -79,6 +79,22 @@ public class User {
         }
         return(generatedPassword);
     }
+
+
+
+    public static boolean checkhUserNameIsvalid(String a) {
+
+        if (Second.test(a) == true) {
+
+            System.out.println("User name is valid");
+            return true;
+        } else {
+            System.out.println("User name is not valid");
+            return false;
+        }
+
+
+    }
 }
 
 

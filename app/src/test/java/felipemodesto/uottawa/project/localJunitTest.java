@@ -198,10 +198,63 @@ public class localJunitTest {
 
     @Test
     public void isNullString() {
-        if (RegTool.isNullString( "ss" )) {
-            System.out.println("ss is null" );
+        if (RegTool.isNullString("ss")) {
+            System.out.println("ss is null");
         } else {
-            System.out.println("ss is not null" );
+            System.out.println("ss is not null");
         }
+
     }
+    @Test
+    public void testNameStartsWithCharacter(){
+
+        String ex = "Jack";
+
+        boolean result = Second.test(ex);
+
+        assertEquals(true,result);
+
+    }
+    
+    @Test
+    public void checkInValue(){
+        String test = "3";
+        int res;
+        int result = 3;
+        res = Time.intvalue(test);
+        assertEquals(result,res);
+    }
+    
+    @Test
+    public void checkidisnull(){
+        String test = "12323";
+        boolean res;
+        boolean result;
+        result = false;
+        res = timecontrol.checkidnull(test);
+        assertEquals(res,result);
+   }
+
+   @Test
+    public void checkUserName(){
+
+        String ex = "Rose";
+
+        boolean result = User.checkhUserNameIsvalid(ex);
+
+        assertEquals(true, result);
+
+   }
+
+    @Test
+    public void checkPhoneIsValid(){
+
+        String ex = "123456";
+
+        boolean result = Employeeprofile.checkPhoneIsNumeric(ex);
+
+        assertEquals(true, result);
+    }
+
+
 }

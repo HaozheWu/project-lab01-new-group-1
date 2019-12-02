@@ -48,5 +48,19 @@ public class Employeeprofile {
         return Phone;
     }
 
+    public static boolean checkPhoneIsNumeric(String phone){
+
+        if(service.isNumeric(phone) == true){
+            System.out.println("Phone is valid");
+            return true;
+
+        }else{
+            System.out.println("Phone is invalid");
+            return false;
+        }
+
+    }
+
 }
+
 

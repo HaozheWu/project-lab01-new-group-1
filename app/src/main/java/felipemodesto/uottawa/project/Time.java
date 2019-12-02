@@ -77,18 +77,28 @@ public class Time {
         this.weekday = weekday;
     }
     public boolean timeavilable(){
-        int checkhourstart=Integer.valueOf(this.starthour).intValue();
-        int checkhourend=Integer.valueOf(this.endhour).intValue();
+        //int checkhourstart=Integer.valueOf(this.starthour).intValue();
+        //int checkhourend=Integer.valueOf(this.endhour).intValue();
+        int checkhourstart=intvalue(this.starthour);
+        int checkhourend=intvalue(this.endhour);
         if(checkhourend<checkhourstart){
             return false;
         }
         else if(checkhourend==checkhourstart){
-            int checkminstart=Integer.valueOf(this.startminute).intValue();
-            int checkminend=Integer.valueOf(this.endminute).intValue();
+            //int checkminstart=Integer.valueOf(this.startminute).intValue();
+            //int checkminend=Integer.valueOf(this.endminute).intValue();
+            int checkminstart=intvalue(this.startminute);
+            int checkminend=intvalue(this.endminute);
             return checkminend >checkminstart;
         }else{
             return  true;
         }
 
+    }
+    
+    public static int intvalue(String a){
+        int res;
+        res = Integer.valueOf(a).intValue();
+        return res;
     }
 }

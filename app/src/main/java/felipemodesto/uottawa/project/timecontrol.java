@@ -244,9 +244,16 @@ public class timecontrol extends AppCompatActivity {
             }
         });
     }
+    
+    public static boolean checkidnull(String a){
+        if(a==null){
+            return true;
+        }
+        return false;
+    }
 
     public void update(final String ids) {
-        if (ids == null) {
+        if (checkidnull(ids)) {
             Toast.makeText(timecontrol.this, "Please choose existing time first", Toast.LENGTH_SHORT).show();
         } else {
             if (checkTimePara(day, starttime, startminute, endtime, endminute)) {
