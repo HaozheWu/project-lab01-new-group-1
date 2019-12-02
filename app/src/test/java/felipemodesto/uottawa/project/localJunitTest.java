@@ -234,4 +234,27 @@ public class localJunitTest {
         res = timecontrol.checkidnull(test);
         assertEquals(res,result);
    }
+
+   @Test
+    public void checkUserName(){
+
+        String ex = "Rose";
+
+        boolean result = User.checkhUserNameIsvalid(ex);
+
+        assertEquals(true, result);
+
+   }
+
+    @Test
+    public void checkPhoneIsValid(){
+
+        String ex = "123456";
+
+        boolean result = Employeeprofile.checkPhoneIsNumeric(ex);
+
+        assertEquals(true, result);
+    }
+
+
 }
